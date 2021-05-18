@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    :root {
+      --icon-color: black;
+    }
+
+    .alert {
+      --icon-color: orange;
+    }
+
+    .icon-container {
+      display: none;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+    }
+
+    h2 {
+      padding: 0 0.5em;
+      margin-bottom: 0;
+    }
+
+    svg {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-container">
+    <symbol id="close-icon" viewbox="0 0 200 200">
+      <circle cx="96" cy="96" r="88" fill="none" stroke="var(--icon-color)" stroke-width="15" />
+      <text x="100" y="160" fill="var(--icon-color)" text-anchor="middle" style="font-size:250px;">x</text>
+    </symbol>
+  </svg>
+
+  <div class="container">
+        <h2>Default Icon</h2>
+        <svg role="img">
+        <title>Close Dialog</title>
+        <use xlink:href="#close-icon" />
+        </svg>
+
+        <div class="alert">
+            <h2>Alert Icon</h2>
+            <svg role="img">
+                <title>Close Alert Dialog</title>
+                <use xlink:href="#close-icon" />
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>
