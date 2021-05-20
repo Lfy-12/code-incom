@@ -14,3 +14,14 @@ var a = new A(2), b = new B(3);
 delete b.x;
 
 */
+
+function A(x){
+    this.x = x;
+    }
+A.prototype.x = 1;
+
+function B(x){
+    this.x = x;
+    }
+B.prototype = new A();//此处没有传参，所以 B.prototype = {x:undefined};
+
