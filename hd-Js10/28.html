@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用访问器批量设置属性</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name:'lfy',
+            hobby:'run',
+            set info(value){
+                [this.name,this.hobby] = value.split(',')
+            },
+            get info(){
+                return this.name+'的爱好是'+this.hobby;
+            }
+        };
+        person.info='llffyy,running';
+        console.log(person.info);
+    </script>
+</body>
+</html>

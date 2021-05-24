@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问器伪造属性操作</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let lesson = {
+            lists: [
+                {name:'js',price:100},
+                {name:'html',price:90},
+                {name:'css',price:50}
+            ],
+            get total(){
+                return this.lists.reduce( (t,l) => t+l.price , 0);
+            }
+        }
+        console.log(lesson.total);
+        lesson.total = 9999; //不能修改
+    </script>
+</body>
+</html>
