@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数与class语法糖使用访问器</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        // // 构造函数
+        // function User(name,age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // let fy = new User('lfy',18);
+        // console.log(fy);
+        // fy.age = 22;
+        // console.log(fy);
+
+        // // 构造函数中的访问器的设置，利用特征形式
+        // function User(name,age){
+        //     let data = {name,age};
+        //     Object.defineProperties(this,{
+        //         name:{
+        //             get(){
+        //                 return data.name;
+        //             },
+        //             set(value){
+        //                 if( value.trim()=="" || value.length >20){
+        //                     throw new Error('用户名不合法');
+        //                 }
+        //                 data.name = value;
+        //             }
+        //         },
+        //         age:{
+        //             get(){
+        //                 return data.age;
+        //             },
+        //             set(value){
+        //                 if( value<0 || value>220){
+        //                     throw new Error('年龄不合法');
+        //                 }
+        //                 data.age = value;
+        //             }
+        //         }
+        //     })
+        // }
+        // let fy = new User('lfy',18);
+        // fy.name = 'llfffyyy';
+        // console.log(fy);
+
+        // 使用类
+        class User{
+            constructor(name,age){
+                this.data = {name,age};
+            }
+            get name(){
+                return this.data.name;
+            }
+            set name(value){
+                if( value.trim()=="" || value.length >20){
+                    throw new Error('用户名不合法');
+                }
+                this.data.name = value;
+            }
+            get age(){
+                return this.data.age;
+            }
+            set age(value){
+                if( value<0 || value>220){
+                    throw new Error('年龄不合法');
+                }
+                this.data.age = value;
+            }
+        }
+        let fy = new User('lfy',18);
+        console.log(fy);
+        fy.name = 'llffyy';
+        console.log(fy);
+    </script>
+</body>
+</html>

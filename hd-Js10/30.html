@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问器的优先级</title>
+</head>
+<body>
+    <script>
+    //    'use strict'
+    //    const user = {
+    //        name: 'lfy',  
+    //        age:17,
+    //        set name(value){
+    //            console.log(value);
+    //        }
+    //    };
+    //    user.name = "llfffyy"; // 通过普通属性改变 还是 通过访问器改变 ，谁的优先级高，就通过谁改变
+    //    console.log(user);  //可以看出 上一个语句是通过访问器改变了name属性，同时对象user丢失了 name属性
+
+    // 'use strict';
+    // const user = {
+    //     data:{name:'lfy'},  //设置为私有属性
+    //     age:17,
+    //     set name(value){
+    //         this.data.name = value;
+    //     },
+    //     get name(){
+    //         return this.data.name
+    //     }
+    // };
+    // // user.name = 'lfyyyy';
+    // // console.log(user);
+    // user.data.name = 'lt';
+    // console.log(JSON.stringify(user,null,2));
+
+    'use strict';
+    const DATA = Symbol();  
+    const user = {
+        [DATA]:{name:'lfy'},  //设置为私有属性
+        age:17,
+        set name(value){
+            this[DATA].name = value;
+        },
+        get name(){
+            return this[DATA].name
+        }
+    };
+    user.name = 'lfffyyy';
+    console.log(user);
+    console.log(user[Symbol()]);
+
+
+
+
+    </script>
+</body>
+</html>

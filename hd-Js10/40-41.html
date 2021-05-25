@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON序列化与自定义toJSON</title>
+</head>
+<body>
+    <script>
+
+        // let person = {
+        //     name:'lfy',
+        //     age:18,
+        //     hobby:'run'
+        // }
+        // let json = JSON.stringify(person,null,2)
+        // let json01 = JSON.stringify(person,['name','age'],2)
+        // console.log(json);
+        // console.log(json01);
+
+        let person = {
+            name:'lfy',
+            age:18,
+            hobby:{
+                bf:'lt'
+            },
+            toJSON: function(){
+                return{
+                    name:this.name,
+                    hobby:this.hobby.bf
+                }
+            } //当return里还没有返回时，JSON序列化后为空对象{}
+        }
+        let json = JSON.stringify(person)
+        console.log(json);
+        console.log(typeof json); //string
+
+        let obj = JSON.parse(json);
+        let obj01 = JSON.parse(json,(key,value)=>{
+            if(key == 'name'){
+                value = '[ifly]-'+value;
+            }
+            return value;
+        });
+        console.log(obj);
+        console.log(obj01);
+    </script>
+</body>
+</html>

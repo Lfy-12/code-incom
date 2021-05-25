@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组使用代理拦截操作</title>
+</head>
+<body>
+    <script>
+        let list = [
+            {name:'dfdjn',age:18},
+            {name:'snfidsfni',age:33},
+            {name:'dkfidshfjdn',age:11}
+        ];
+        let proxy = new Proxy(list,{
+            get(array,key){
+                const name = array[key].name;
+                const len = 5;
+                array[key].name = name.length>5 ? name.substr(0,len) +'...' : name
+                return array[key];
+            }
+        });
+        console.log(JSON.stringify(proxy[1],null,2));
+    </script>
+</body>
+</html>
