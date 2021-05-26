@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__proto__原来是属性访问器</title>
+</head>
+<body>
+    <script>
+        // // __proto__  setter getter
+        // let fy = {name:'lfy'};
+        // fy.__proto__ = {
+        //     show(){
+        //         console.log(this.name);
+        //     }
+        // }
+        // fy.__proto__ = 99;  //fy.__proto__不是对象时，赋值不起作用，不改变
+        // fy.show();
+        // console.log(fy);
+
+
+
+        // 问题：假设就是想让 fy.__proto__ = 99 呢，该怎么办
+        let fy = Object.create(null);
+        fy.__proto__ = 99;
+        console.log(fy.__proto__);
+
+    </script>
+</body>
+</html>

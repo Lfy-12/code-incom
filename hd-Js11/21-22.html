@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.create \ __proto__ \ setPrototypeOf</title>
+</head>
+<body>
+    <script>
+        let User = {
+            show(){
+                return this.name;
+            }
+        };
+
+        // // Object.create 创建一个新对象，使用现有的对象来提供新创建的对象的proto
+        // // 只能定义原型，不能获取
+        // let fy = Object.create(User,{
+        //     name:{
+        //         value:'ifly'
+        //     }
+        // })
+        // console.log(fy.show());
+
+        // let fy = {name:'ifly'};
+        // fy.__proto__ = User;
+        // console.log(fy.show());
+
+        let fy = {name:'ifly'};
+        Object.setPrototypeOf(fy,User);
+        console.log(fy.show());
+        console.log(Object.getPrototypeOf(fy));
+
+    </script>
+</body>
+</html>

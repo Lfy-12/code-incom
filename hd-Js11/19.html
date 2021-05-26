@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 和原型没有关系</title>
+</head>
+<body>
+    <script>
+        let fy = {
+            name:'lfy',
+            show(){
+                console.log(this.name);
+            }
+        }
+        fy.show();
+
+        let lt = {
+            name:'lt'
+        };
+        let parent = {
+            name:'parent',
+            show(){
+                console.log(this.name);
+            }
+        }
+        Object.setPrototypeOf(lt,parent);
+        lt.show();
+    </script>
+</body>
+</html>

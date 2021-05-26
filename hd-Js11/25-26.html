@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承是原型的继承</title>
+</head>
+<body>
+    <script>
+
+        // function son(){}
+        // son.prototype.show = function(){
+        //     console.log('son.name');
+        // }
+
+        // function parent(){}
+        // parent.prototype.role = function(){
+        //     console.log('parent.role');
+        // }
+
+        // // 1.1继承
+        // son.prototype.__proto__ = parent.prototype
+
+        // let fy = new son();
+        // fy.show();
+        // fy.role();
+
+
+
+
+        function son(){}
+
+        function parent(){}
+        parent.prototype.role = function(){
+            console.log('parent.role');
+        }
+
+        // 1.2 继承
+        // Object.create 创建一个 新对象 ，使用现有的对象来提供新创建的对象的proto
+        son.prototype = Object.create(parent.prototype);
+
+        // 此时这种方法 添加属性要在 继承 后
+        son.prototype.show = function(){
+            console.log('son.name');
+        }
+
+        let fy = new son();
+        fy.role();
+        fy.show();
+
+
+
+        
+
+
+        // let fy = new son();
+        // for (const key in fy) {
+        //     console.log(key);
+        // }
+        // console.log(fy.__proto__);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承对constructor属性的影响</title>
+</head>
+<body>
+    <script>
+
+    //     function son(){}
+
+    //     function parent(){}
+    //     parent.prototype.role = function(){
+    //         console.log('parent.role');
+    //     }
+        
+    //     son.prototype = Object.create(parent.prototype);
+
+    //     son.prototype.show = function(){
+    //         console.log('son.name');
+    //     }
+
+    //     son.prototype.constructor = son;  //
+        
+    //    let fy = new son();
+    //    for (const key in fy) {
+    //        console.log(key);   //此时，constructor也被遍历出来了
+    //    }
+
+
+
+    function son(){}
+
+    function parent(){}
+    parent.prototype.role = function(){
+        console.log('parent.role');
+    }
+
+    son.prototype = Object.create(parent.prototype);
+
+    son.prototype.show = function(){
+        console.log('son.name');
+    }
+
+    // son.prototype.constructor = son;  
+    Object.defineProperty(son.prototype,'constructor',{
+        value:son,
+        enumerable:false
+    })
+
+    let fy = new son();
+    for (const key in fy) {
+    console.log(key);   //此时，constructor就不会被遍历出来了
+    }
+
+
+
+
+    
+    </script>
+</body>
+</html>

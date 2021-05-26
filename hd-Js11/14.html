@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>in 与 hasOwnProperty的属性检测差异</title>
+</head>
+<body>
+    <script>
+        let a = {url:'lfy.com'};
+        let b = {name:'ifly'};
+        Object.setPrototypeOf(a,b);
+
+        console.log('name' in a); //检测 a 上是否有 'name'属性，包括原型链上
+        console.log(a.hasOwnProperty('name')); //检测 a 自身上是否有 'name'属性，不包括原型链上
+
+        for (const key in a) {
+            if (a.hasOwnProperty(key)) {
+                console.log(key);
+            }
+        }
+
+        for (const key in a) {
+            
+            console.log(key);
+            
+        }
+
+
+    </script>
+</body>
+</html>

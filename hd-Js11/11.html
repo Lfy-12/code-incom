@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>总结原型</title>
+</head>
+<body>
+    <script>
+        let arr = []; //new Array
+        console.log(arr.__proto__.__proto__ === Object.prototype);
+        console.log(Object.prototype.__proto__);
+
+        let a = {name:'a'};
+        let b = {
+            name:'b',
+            show(){
+                console.log(this.name);
+            }
+        };
+        Object.setPrototypeOf(a,b);
+        console.dir(a);
+        a.show();
+        console.log(a.__proto__.__proto__ === Object.prototype);
+    </script>
+</body>
+</html>
