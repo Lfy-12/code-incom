@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法重写与父级属性访问</title>
+</head>
+<body>
+    <script>
+        function parent(){}
+        parent.prototype.role = function(){
+            console.log('parent.role');
+        }
+        parent.prototype.show = function(){
+            return 'parent-'
+        }
+
+        function son(){}
+
+        son.prototype = Object.create(parent.prototype);
+
+        // son.prototype.constructor = son;  
+        Object.defineProperty(son.prototype,'constructor',{
+            value:son,
+            enumerable:false
+        })
+
+        // 对父类方法的重写
+        son.prototype.role = function(){
+            console.log( parent.prototype.show() +'son.role' ); //需要借用父类的方法
+        }
+
+        let fy = new son();
+        fy.role();
+    </script>
+</body>
+</html>

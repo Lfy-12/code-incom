@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象工厂派生对象并实现继承</title>
+</head>
+<body>
+    <script>
+        function User(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        User.prototype.show = function(){
+            console.log(this.name,this.age);
+        };
+
+        function admin(name,age){
+            const obj = Object.create(User.prototype);
+            User.call(obj,name,age);
+            return obj;
+        }
+
+        let admin01 = admin('fy',18);
+        admin01.show();
+    </script>
+</body>
+</html>
