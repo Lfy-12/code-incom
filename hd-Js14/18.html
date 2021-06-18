@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原子表基本使用</title>
+</head>
+<body>
+    <script>
+        let tel = '2021/06/16'
+        // ([-\/])  \1  使日期连接符统一
+        let reg = /^\d{4}([-\/])\d{2}\1\d{2}$/
+        console.log(tel.match(reg));
+    </script>
+</body>
+</html>

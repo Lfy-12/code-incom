@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字面量创建正则表达式</title>
+</head>
+<body>
+    <script>
+        let hd = 'houdunren.com'
+        console.log(/u/.test(hd));
+
+        // 有变量时的创建方式
+        let a = 'u'
+        console.log(/a/.test(hd));//错误
+
+        console.log(eval(`/${a}/`).test(hd));
+    </script>
+</body>
+</html>

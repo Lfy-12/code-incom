@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m多行匹配修正符实例</title>
+</head>
+<body>
+    <script>
+        let hd = `
+        #1 js,200元 #
+        #2 php,300元 #
+        #9 houdunren.com # 后盾人
+        #3 node.js,180元 #
+        `;
+
+        // let reg = /^\s*#\d\s\w.+#$/gm
+        let reg = /^\s*#\d+\s+.+\s+#$/gm
+        let hd01 = hd.match(reg)
+        hd02 = hd01.map(i => {
+            i = i.replace(/^\s*#\d+\s+/,'').replace(/\s+#$/,'')
+            let [name,price] = i.split(',')
+            return {name,price}
+        })
+       
+        console.log(hd02);
+    </script>
+</body>
+</html>

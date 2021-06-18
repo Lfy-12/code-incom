@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宏任务和微任务执行顺序</title>
+</head>
+<body>
+    <script>
+        // ()=>{} 宏任务 排第3
+        setTimeout(()=>{
+            console.log('setTimeout....');
+        },0)
+        
+        new Promise(resolve=>{
+            resolve();
+            // 同步任务  排第1
+            console.log('promise');
+        }).then(value=>{
+            // then()  微任务  排第2
+            console.log('promise---then.....');
+        })
+
+        // 同步任务 排第1
+        console.log('testing....');
+    </script>
+</body>
+</html>

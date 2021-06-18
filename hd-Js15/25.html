@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.allSettled使用</title>
+</head>
+<body>
+    <script>
+        const lfy = new Promise((resolve,reject)=>{
+            // resolve('第一个异步')
+            reject('第一个异步失败 ')
+        })
+
+        const lt = new Promise((resolve,reject)=>{
+            resolve('第二个异步')
+        })
+
+        Promise.allSettled([lfy,lt]).then(res=>{
+            console.log(res);
+        }).catch(err => console.log(err))
+
+    </script>
+</body>
+</html>

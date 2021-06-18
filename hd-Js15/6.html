@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise微任务处理机制</title>
+</head>
+<body>
+    <script>
+        // pending 准备阶段
+        // resolved   fulfilled    成功状态
+        // rejected 拒绝状态
+        // console.log(new Promise(()=>{}));
+        // console.log(new Promise( (resolve,reject)=>{
+        //     resolve('成功状态')
+        // }));    
+        // console.log(new Promise( (resolve,reject)=>{
+        //     reject('拒绝状态')
+        // }));
+
+        new Promise((resolve,reject)=>{
+            // resolve('操作成功');
+            reject('操作失败');
+        }).then(value=>{
+            console.log('成功业务处理1');
+        },reason=>{
+            console.log('拒绝的业务处理1');
+        }).then(value=>{
+            console.log('成功业务处理2');
+        },reason=>{
+            console.log('拒绝的业务处理2');
+        })
+    </script>
+</body>
+</html>l

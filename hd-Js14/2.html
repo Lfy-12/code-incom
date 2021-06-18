@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体验正则表达式的魅力</title>
+</head>
+<body>
+    <script>
+        let hd = 'hooudunren2000hdcms2000';
+        let nums = [...hd].filter(a => !Number.isNaN(parseInt(a)));
+        console.log(nums.join(''));
+
+        console.log(hd.match(/\d/g).join(''));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宏任务的提升原来是误解</title>
+</head>
+<body>
+    <script>
+        new Promise(resolve=>{
+            setTimeout(()=>{
+                console.log('Promiese---setTimeout1');
+                resolve();
+                console.log('Promiese---setTimeout2');
+            })
+            console.log('Promiese');
+        }).then( value=> console.log('then......') )
+
+        console.log('testing....');
+    </script>
+</body>
+</html>

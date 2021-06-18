@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- 在浏览器中引用模块必须添加路径如./ -->
+<!-- 模块化  严格模式  后解析（模块总是会在所有html解析后才执行） -->
+<script type="module">
+    import {} from './module.js'
+    console.log('后执行',this);
+</script>
+
+<script>
+    console.log('先执行',this);
+</script>
+
+<body>
+    
+</body>
+</html>

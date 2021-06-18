@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉字与字符属性</title>
+</head>
+<body>
+    <script>
+        // ???? L属性表示是字母+汉字
+        // 每个字符都有属性，如L属性表示是字母，P表示标点符号，需要结合u模式才有效
+        let hd = 'houdunren.黎芳燕。2021！加油'
+        console.log(hd.match(/\p{L}+/gu));
+        console.log(hd.match(/\p{P}/gu));
+
+        console.log(hd.match(/\p{sc=Han}+/gu));
+
+
+        let str = "𝒳𝒴";
+        console.table(str.match(/[𝒳𝒴]/)); //结果为乱字符"�"
+        console.table(str.match(/[𝒳𝒴]/u)); //结果正确 "𝒳"
+    </script>
+</body>
+</html>

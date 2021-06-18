@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用finally实现异步加载动画</title>
+</head>
+<body>
+    <script>
+        new Promise((resolve,reject)=>{
+            // resolve('成功了');
+            reject('失败了');
+        }).then(value=>console.log(value)
+        ).catch(err=>console.log(err)
+        ).finally(()=>{
+            console.log('始终执行');
+        })
+    </script>
+</body>
+</html>

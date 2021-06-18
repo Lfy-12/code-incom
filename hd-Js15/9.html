@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise单一状态与状态中转</title>
+</head>
+<body>
+    <script>
+
+        let promiseTest = new Promise((resolve,reject)=>{
+            resolve('成功test....');
+        })
+
+        new Promise((resolve,reject)=>{
+
+            // 状态一旦改变将不可更改：
+                // 下面先通过resolve 改变为成功状态，表示promise 状态已经完成，就不能使用 reject 更改状态了
+            // resolve('成功');
+            // reject('错误');
+
+            setTimeout(()=>{
+                resolve(promiseTest)
+            },1000)
+
+        }).then(msg=>{
+            console.log('success---',msg);
+        },error=>{
+            console.log('error---',error);
+        })
+
+        console.log('firstTest....');
+    </script>
+</body>
+</html>

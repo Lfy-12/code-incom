@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>按需动态加载模块</title>
+</head>
+<body>
+    <script type="module">
+
+        // 报错：需要顶层导入
+        // if(true){
+        //     import {} from './module.js'
+        // }
+
+        // 使用import() 函数可以动态导入模块，它返回一个 promise 对象
+        if(true){
+            import('./module.js')
+        }
+
+    </script>
+</body>
+</html>

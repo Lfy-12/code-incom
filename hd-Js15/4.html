@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过文件依赖了解任务排序</title>
+</head>
+<body>
+    <script>
+        function load(src,resolve){
+            let script = document.createElement('script');
+            script.src = src;
+            script.onload = resolve
+            document.body.appendChild(script);
+        }
+
+        // 这样子有可能会出错
+        // load('4.1.js',()=>{
+        //     test1();
+        // })
+        // load('4.2.js',()=>{
+        //     test2();
+        // })
+
+        load('4.1.js',()=>{
+            test1();
+            load('4.2.js',()=>{
+                test2()
+            })
+        })
+
+        console.log('任务排序');
+    </script>
+</body>
+</html>

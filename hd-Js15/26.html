@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.race后台请求超时处理</title>
+</head>
+<body>
+    <script>
+        const lfy = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve('第1个异步')
+            }, 1500);
+        })
+
+        const lt = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve('第二个异步')
+            }, 1200);
+        })
+
+        const hhhh = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve('网络连接超时')
+            }, 1000);
+        })
+
+        Promise.race([lfy,lt,hhhh]).then(res=>{
+            console.log(res);
+        })
+    </script>
+</body>
+</html>

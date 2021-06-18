@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async和await语法糖</title>
+</head>
+<body>
+    <script>
+        // async和await
+        async function queue(){
+            let num1 = await new Promise(resolve=>{
+                setTimeout(() => {
+                    console.log('num1');
+                    resolve()
+                }, 1000);
+            })
+            let num2 = await new Promise(resolve=>{
+                setTimeout(() => {
+                    console.log('num2');
+                }, 1000);
+            })
+        }
+
+        // promise
+        Promise.resolve().then(_=>{
+            return new Promise(resolve=>{
+                setTimeout(() => {
+                    console.log('1');
+                    resolve()
+                }, 1000);
+            })
+        }).then(__=>{
+            return new Promise(resolve=>{
+                setTimeout(() => {
+                    console.log('2');
+                    resolve()
+                }, 1000);
+            })
+        }).then(__=>{
+            return new Promise(resolve=>{
+                setTimeout(() => {
+                    // 在promise中调用async和await定义的函数queue
+                   queue()
+                }, 1000);
+            })
+        })
+    </script>
+</body>
+</html>

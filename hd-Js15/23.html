@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.reject使用</title>
+</head>
+<body>
+    <script>
+        Promise.reject('失败了').then(null,err=>console.log(err))
+
+        new Promise(resolve=>{
+            resolve('lfy')
+        }).then(value => {
+            if(value != 'lt'){
+                throw new Error('fail')
+                // return Promise.reject('参数错误')
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器的任务轮询</title>
+</head>
+<body>
+    <div style="width: 200px;height: 200px;background: #000;position: absolute;"></div>
+    <script>
+
+        function interval(callback,delay){
+            let id = setInterval(()=>callback(id),delay);
+        }
+
+        interval(timeId=>{
+            const div = document.querySelector('div');
+            let left = parseInt(window.getComputedStyle(div).left);
+            div.style.left = left + 10 + 'px'
+            if(left >= 250){
+                clearInterval(timeId)
+                interval(timeId=>{
+                    let width = parseInt(window.getComputedStyle(div).width);
+                    div.style.width = width - 10 + 'px';
+                    if(width <= 50){
+                    clearInterval(timeId)
+                }
+                },50)
+            }
+        },50)
+        
+        for(let i=0; i<= 12200;i++){
+            console.log('testing....');
+        }
+    </script>
+</body>
+</html>
