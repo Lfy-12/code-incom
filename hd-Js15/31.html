@@ -12,10 +12,11 @@
         async function queue(){
             let num1 = await new Promise(resolve=>{
                 setTimeout(() => {
-                    console.log('num1');
+                    console.log('num1-1');
                     resolve()
                 }, 1000);
             })
+            console.log('num1-2');
             let num2 = await new Promise(resolve=>{
                 setTimeout(() => {
                     console.log('num2');
