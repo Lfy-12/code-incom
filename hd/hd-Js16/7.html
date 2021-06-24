@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务拆分成多个子任务</title>
+</head>
+<body>
+    <script>
+        function sum(){
+            for(let i=0;i<100000000;i++){
+                if(num<=0) break;
+                total += num--
+            }
+            if(num>0){
+                console.log(num);
+                setTimeout(sum);
+            }else{
+                console.log(total);
+            }
+        };
+        
+        let total = 0;
+        let num = 987654321;
+        sum();
+        console.log('hi');
+    </script>
+</body>
+</html>

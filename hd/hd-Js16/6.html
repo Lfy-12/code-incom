@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条实例体验任务轮询</title>
+    <style>
+        div{
+            height: 30px;
+            width: 0px;
+            background: grey;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>0%</div>
+    <script>
+        div = document.querySelector('div')
+        function progress(){
+            let i = 0;
+            (function run(){
+                div.style.width = i*2 + 'px';
+                div.innerHTML = i + '%';
+                if(++i <= 100){
+                    setTimeout(run, 20);
+                }
+            })()
+        }
+        progress()
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise微任务处理复杂业务</title>
+</head>
+<body>
+    <script>
+
+        // function total(num){
+        //     return new Promise(resolve=>{
+        //         setTimeout(() => {
+        //             let count = 0;
+        //             for(let i=0;i<=num;i++){
+        //                 count += num--;
+        //             }
+        //             resolve(count);
+        //         });
+        //     })
+        // }
+        // async function sum(num){
+        //     let res = await total(num);
+        //     console.log(res);
+        // }
+
+        async function sum(num){
+            let res = await Promise.resolve().then(_=>{
+                let count = 0;
+                for(let i=0;i<=num;i++){
+                    count += num--;
+                }
+                return count;
+            });
+            console.log(res);
+        }
+
+        sum(987654321);
+        console.log('lfy');
+    </script>
+</body>
+</html>

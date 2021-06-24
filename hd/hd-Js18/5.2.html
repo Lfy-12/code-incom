@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点对象与原型链</title>
+</head>
+<body>
+    <div id='hdcms'></div>
+    <script>
+        function prototype(el) {
+            console.log(el.__proto__)
+            el.__proto__ ? prototype(el.__proto__) : ''
+        }
+        const node = document.getElementById('hdcms')
+        prototype(node)
+    </script>
+
+    <!-- 
+        原型	              说明
+        Object	              根对象
+        EventTarget           提供事件支持
+        Node	              提供parentNode等节点操作方法
+        Element	              提供getElementsByTagName、querySelector等方法
+        HTMLElement	          所有元素的基础类，提供className、nodeName等方法
+        HTMLDivElement	      Div标题元素类
+    -->
+</body>
+</html>

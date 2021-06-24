@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生封装的Promise</title>
+</head>
+<body>
+    <script>
+        let q = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                // resolve('okk')
+            }, 1000);
+            resolve('okk')
+            // reject('123')
+        }).then(value=>{
+            console.log(value1);
+        },reason=>{
+            console.log(reason);
+        })
+        console.log('hi');
+        setTimeout(() => {
+            console.log(q);
+        }, 500);
+    </script>
+</body>
+</html>
