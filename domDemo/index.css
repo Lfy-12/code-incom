@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f7f8fa;
+}
+
+.left {
+  float: left;
+  width: 219px;
+  height: 500px;
+  margin: 20px;
+  padding: 15px;
+  background-color: white;
+}
+
+.left .btns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left .btns button {
+  width: 45%;
+  margin: 3px;
+  border: 1px grey solid;
+  background-color: #fff;
+}
+
+.right {
+  float: left;
+  width: 800px;
+  margin: 20px;
+}
+
+.right div {
+  background-color: #fff;
+  box-shadow: 5px 5px 20px #d1cfcf;
+  padding: 20px;
+  margin: 10px;
+}

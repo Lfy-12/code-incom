@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P23显示隐藏文本框内容</title>
+    <style>
+        input{
+            color: #999;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="lfy">
+
+    <script>
+        const input = document.querySelector('input');
+        input.onfocus = function(){
+            // console.log('获得焦点');
+            if(this.value == 'lfy'){
+                this.value = ''
+            }
+            this.style.color = '#333';
+        }
+        input.onblur = function(){
+            // console.log('失去焦点');
+            if(this.value == ''){
+                this.value = 'lfy'
+            }
+            this.style.color = '#999'
+        }
+    </script>
+</body>
+</html>

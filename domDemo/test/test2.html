@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P18仿京东显示隐藏密码明文案例 </title>
+    <style>
+        .container{
+            width: 200px;
+            height: 30px;
+            border-bottom: 1px grey solid;
+            margin: 50px auto;
+            position: relative;
+        }
+        input{
+            height: 25px;
+            padding-left: 8px;
+            border: none;
+            outline: none;
+        }
+        img{
+            width: 18px;
+            position: absolute;
+            top: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="password" id="psw">
+        <img src="img/close.png" alt="">
+    </div>
+
+    <script>
+        // 1. 获取元素
+        const input = document.getElementById('psw');
+        const img = document.querySelector('img')
+        // 2. 注册事件 处理程序
+        let flag = 0;
+        img.onclick = function(){
+            if(flag == 0){
+                input.type = 'text';
+                img.src = 'img/open.png';
+                flag = 1;
+            }else{
+                input.type = 'password';
+                img.src = 'img/close.png'
+                flag = 0
+            }
+        }
+    </script>
+</body>
+</html>
