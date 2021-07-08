@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>44 + 46</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+        li a{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+        
+    </ul>
+    <script>
+        const text = document.querySelector('textarea');
+        const button = document.querySelector('button');
+        const ul = document.querySelector('ul');
+        button.onclick = function(){
+            if(text.value == ''){
+                alert('您还没有输入内容');
+                return false;
+            }
+            const li = document.createElement('li');
+            li.innerHTML = text.value + '<a href="javascript:;">删除</a>';
+            // ul.appendChild(li);
+            ul.insertBefore(li,ul.children[0]);
+
+            // 视频中的做法
+            // const aaa =  document.querySelectorAll('a');
+            // for(let i=0;i<aaa.length;i++){
+            //     aaa[i].onclick = function(){
+            //         // node.removeChild(child)  要删除的是li
+            //         ul.removeChild(this.parentNode);
+            //     }
+            // }
+
+            // 我的做法
+            // 思路：留言<li>中包含<a>超链接(即删除按钮),点击发布留言的同时,给这条留言绑定删除点击事件,无需像视频中逐条循环绑定事件
+            const aaa =  document.querySelectorAll('a');
+            aaa[0].onclick = function(){
+                ul.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

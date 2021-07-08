@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: grey;
+            border-bottom: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        const divs = document.querySelectorAll('div');
+
+        // 1.传统方式删除事件
+        divs[0].onclick = function(){
+            alert(0);
+            this.onclick = null;
+        }
+
+        // 2.removeEventListener 删除事件
+        divs[1].addEventListener('click',fn);
+        function fn(){
+            alert(2);
+            divs[1].removeEventListener('click',fn);
+        }
+
+        // 3.ie9以下 detachEvent(需要在ie9以下的浏览器中运行)
+        divs[2].attachEvent('click',fn);
+        function fn(){
+            alert(2);
+            divs[2].detachEvent('click',fn);
+        }
+    </script>
+</body>
+</html>
