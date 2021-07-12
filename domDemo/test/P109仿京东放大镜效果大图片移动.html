@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机详情页！</title>
+    <meta name="description" content="品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购" />
+    <style>
+        .center{
+            width: 1000px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .preview_img {
+            position: relative;
+            height: 398px;
+            border: 1px solid #ccc;
+            float: left;
+        }
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: #FEDE4F;
+            opacity: .5;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            left: 410px;
+            top: 0;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            z-index: 999;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="preview_img">
+            <img src="img/small.png" alt="">
+            <div class="mask"></div>
+            <div class="big">
+                <img src="img/big.jpg" alt="" class="bigImg">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const preBox = document.querySelector('.preview_img');
+        const mask = document.querySelector('.mask');
+        const big = document.querySelector('.big');
+
+        // 鼠标经过遮罩层和大图的显示与隐藏
+        preBox.addEventListener('mouseover',function(){
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        })
+        preBox.addEventListener('mouseout',function(){
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
+        
+        preBox.addEventListener('mousemove',function(e){
+            // e.pageX - this.offsetLeft 求鼠标经过时在预览盒子中的坐标
+            // - mask.offsetWidth/2  使鼠标始终位于mask的中心
+            let maskX = e.pageX - this.offsetLeft - mask.offsetWidth/2;
+            let maskY = e.pageY - this.offsetTop - mask.offsetHeight/2;
+            const maskMax = preBox.offsetWidth - mask.offsetWidth;
+            if(maskX <= 0){
+                maskX =0;
+            }else if(maskX >= maskMax){
+                maskX = maskMax;
+            }
+            if(maskY <= 0){
+                maskY =0;
+            }else if(maskY >= maskMax){
+                maskY = maskMax;
+            }
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY + 'px';
+
+            const bigImg = document.querySelector('.bigImg')
+            const bigMax = bigImg.offsetWidth - big.offsetWidth;
+            // 根据大图与mask的最大移动距离 与 mask移动距离，计算出大图移动的比例距离
+            let bigX = maskX * bigMax / maskMax;
+            let bigY = maskY * bigMax / maskMax;
+            bigImg.style.left = -bigX + 'px';
+            bigImg.style.top = -bigY + 'px';
+        })
+    </script>
+</body>
+
+</html>

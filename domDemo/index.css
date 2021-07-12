@@ -34,9 +34,56 @@ body {
   margin: 20px;
 }
 
-.right div {
+.right .header {
   background-color: #fff;
-  box-shadow: 5px 5px 20px #d1cfcf;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
+  border-radius: 4px;
+  margin: 0 10px;
+}
+
+.question .item {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 18px 50px 18px 20px;
   margin: 10px;
+  position: relative;
+}
+
+.question .item .count::before {
+  content: '*';
+  color: red;
+}
+
+.question .item input {
+  width: 300px;
+  margin-left: 2px;
+  border: 1px white solid;
+  font-size: 15px;
+  outline: none;
+  padding: 10px 8px;
+}
+
+.question .item div {
+  padding: 0;
+  margin: 10px 0 0 20px;
+  height: 30px;
+  width: 450px;
+  box-shadow: none;
+  border: 1px solid #cac9c9;
+}
+
+.question .item img {
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 10px;
+}
+
+.item-active {
+  border: 1px solid blue;
+}
+
+.title-active {
+  background-color: #f7f8fa;
 }
