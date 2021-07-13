@@ -210,7 +210,7 @@
     go(参数)
 
 # 
-## 元素偏移量offset系列
+## offset系列
     element.offsetParent  (带有定位的)
     element.offsetTop
     element.offsetLeft
@@ -218,4 +218,25 @@
     element.offsetHeight
     (offset与style的区别：见 img -> offset与style区别.png )
 
-## 
+## client系列
+    element.clientTop   返回元素上边框的大小
+    element.clientLeft
+    element.clientWidth  返回自身包括paddding、内容区的宽度，不包含边框，返回数值不带单位
+    element.clientHeight
+
+## scroll系列
+    element.scrollTop  返回被卷去的上侧距离
+    element.scrollLeft
+    element.scrollWidth  返回自身实际的宽度
+    element.scrollHeight
+
+## 三大系列的对比
+    1. element.offsetWidth  返回自身包括padding、边框、内容区的宽度，返回数值不带单位
+    2. element.clientWidth  返回自身包括padding、内容区的宽度，不包含边框，返回数值不带单位
+    3. element.scrollWidth  返回自身实际的宽度，不包含边框，返回数值不带单位
+
+    offset系列经常用于获得元素位置 offsetLeft offsetTop
+    client经常用于获取元素大小 clientWidth  clientHeight
+    scroll经常用于获取滚动距离 scrollTop  scrollLeft
+
+    注意页面滚动的距离通过window.pageXOffset获得
