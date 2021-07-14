@@ -1,0 +1,16 @@
+<div class="div">
+<span> ddd</span>
+我是div中的元素</div>
+<input type="radio" name="" id="">
+
+<script>
+var span = document.querySelector("span");
+var div = document.querySelector("div");
+  div.onclick = function () {
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    var range = document.createRange();
+    range.selectNodeContents(span.nextSibling);
+    selection.addRange(range);
+  };
+</script>

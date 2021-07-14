@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>牛客网题目——下面代码点击按钮后页面上的最终结果？</title>
+
+    <script>
+        function myFunc(){
+            document.write(a);
+            document.write(func());
+            var a = 1;
+            function func(){
+                return 2;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <p>1</p>
+    <button onclick="myFunc()">点击</button>
+
+    考点：
+    1. 变量提升(var 和 function)  => undefined
+    2. document.write() 如果页面文档流加载完毕，再调用它会导致页面重绘 =>  1(不在页面上了)
+    3. 同一个document不会覆盖
+</body>
+</html>

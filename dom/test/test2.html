@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>自动选择文本框/编辑框中的文字</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+		// $(function(){
+		// 	$("div").on("click", function(){
+		// 		var selection = window.getSelection();        
+		// 		selection.removeAllRanges();
+		// 		var range = document.createRange();
+		// 		range.selectNodeContents(document.getElementById($(this).attr('id'))); // 需要选中的dom节点
+		// 		selection.addRange(range);
+        //         console.log($(this).attr('id'));
+		// 	})
+		// })
+        function allText(){
+            var selection = window.getSelection();        
+            selection.removeAllRanges();
+            var range = document.createRange();
+            range.selectNodeContents(document.getElementById('#hhh')); // 需要选中的dom节点
+            selection.addRange(range);
+        }
+    </script>
+</head>
+<body style="font-size:12px">
+    <div id="hhh" onclick="allText()">
+        <input type="radio" name="" id="">nan
+    </div>
+</body>
+</html>

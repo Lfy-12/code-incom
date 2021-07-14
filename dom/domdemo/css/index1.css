@@ -67,30 +67,16 @@ body {
 }
 
 .question .item .title {
-  display: inline-block;
   box-sizing: border-box;
   width: 300px;
   height: 38px;
   margin-left: 2px;
   border: 1px white solid;
   border-left: none;
-  font-size: 15px;
-  padding: 10px 8px;
-}
-
-.question .item .title:hover {
-  border: 1px grey dashed;
-}
-
-.question .item input[type='text'] {
   border: none;
+  font-size: 15px;
   outline: none;
-  background-color: #ffffff00;
-  font-size: 16px;
-}
-
-.question .item input[type='radio'] {
-  margin: 0 10px 0 20px;
+  padding: 10px 8px;
 }
 
 .question .item .radio {
@@ -103,6 +89,10 @@ body {
 .question .item .circle {
   width: 20px;
   height: 20px;
+}
+
+.question .item .title:hover {
+  border: 1px grey dashed;
 }
 
 .question .item .box {
@@ -137,6 +127,10 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 12px;
+}
+
+.question .item input[type='radio'] {
+  margin: 0 10px 0 20px;
 }
 
 .question .item .option-list {
