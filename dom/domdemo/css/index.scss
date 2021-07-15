@@ -124,38 +124,39 @@ body{
             margin: 5px 0 0 20px;
             .option-item{
                 width: 400px;
+                height: 38px;
                 display: flex;
                 align-items: center;
+                .title{
+                    display: flex;
+                    height: 40px;
+                }
             }
             .box{
                 margin-left: 10px;
             }
         }
-        .delete2{
-            width: 22px;
-            height: 22px;
-            margin-left: 5px;
-            display: none;
-            cursor: pointer;
-        }
         .btn-box{
-            margin-top: 15px;
+            margin-top: 10px;
             margin-left: 29px;
             display: none;
             button{
-                width: 100px;
                 height: 30px;
                 background-color: #fff;
                 color: blue;
                 border: none;
-                margin-right: 10px;
+                margin-right: 20px;
                 cursor: pointer;
             }
             button:hover{
                 background-color: #ebeef1;
             }
         }
-
+        ul{
+            .textdiv{
+                margin: 0 10px 0 0;
+            }
+        }
     }
 
     .right-icon{
@@ -166,11 +167,35 @@ body{
     .item:hover .right-icon{
         display: inline-block;
     }
+    .delete2{
+        width: 22px;
+        height: 22px;
+        margin-left: 5px;
+        cursor: pointer;
+        display: none;
+    }
+    .option-item:hover .delete2{
+        display: inline-block;
+    }
     .delete , .move{
         width: 22px;
         height: 22px;
         float: right;
         margin-right: 10px;
+    }
+    .cascader_box{
+        margin: 5px 0 0 30px;
+        .cascader_item{
+            border: 1px solid #d8d8d8;
+            border-radius: 2px;
+            width: 120px;
+            height: 30px;
+            background: #fff;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+            outline: none;
+        }
     }
     
 }

@@ -145,40 +145,41 @@ body {
 
 .question .item .option-list .option-item {
   width: 400px;
+  height: 38px;
   display: flex;
   align-items: center;
+}
+
+.question .item .option-list .option-item .title {
+  display: flex;
+  height: 40px;
 }
 
 .question .item .option-list .box {
   margin-left: 10px;
 }
 
-.question .item .delete2 {
-  width: 22px;
-  height: 22px;
-  margin-left: 5px;
-  display: none;
-  cursor: pointer;
-}
-
 .question .item .btn-box {
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 29px;
   display: none;
 }
 
 .question .item .btn-box button {
-  width: 100px;
   height: 30px;
   background-color: #fff;
   color: blue;
   border: none;
-  margin-right: 10px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
 .question .item .btn-box button:hover {
   background-color: #ebeef1;
+}
+
+.question .item ul .textdiv {
+  margin: 0 10px 0 0;
 }
 
 .question .right-icon {
@@ -190,11 +191,39 @@ body {
   display: inline-block;
 }
 
+.question .delete2 {
+  width: 22px;
+  height: 22px;
+  margin-left: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.question .option-item:hover .delete2 {
+  display: inline-block;
+}
+
 .question .delete, .question .move {
   width: 22px;
   height: 22px;
   float: right;
   margin-right: 10px;
+}
+
+.question .cascader_box {
+  margin: 5px 0 0 30px;
+}
+
+.question .cascader_box .cascader_item {
+  border: 1px solid #d8d8d8;
+  border-radius: 2px;
+  width: 120px;
+  height: 30px;
+  background: #fff;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  outline: none;
 }
 
 .item-active {

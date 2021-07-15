@@ -240,3 +240,9 @@
     scroll经常用于获取滚动距离 scrollTop  scrollLeft
 
     注意页面滚动的距离通过window.pageXOffset获得
+
+## mouseover 和 mouseenter 的区别
+    1. mouseover鼠标经过自身盒子会触发，经过子盒子还会触发
+       mouseenter只会经过自身盒子触发
+    2. 之所以这样子，就是因为mouseenter不会冒泡
+    3. 跟mouseenter搭配鼠标离开mouseleave同样不会冒泡
