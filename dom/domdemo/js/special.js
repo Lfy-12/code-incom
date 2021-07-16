@@ -12,6 +12,14 @@ function infoFunc(event){
     const item = document.createElement('div');
     item.innerHTML = info_html;
     common(item);
+
+    // 给item添加一个id属性,方便增删改查
+    item.id = randomString();
+    // 
+    temp = {id:item.id,type:'info',title:event.target.innerText};
+    setData(item);
+
+    
 }
 
 // 性别
@@ -23,10 +31,10 @@ const sex_template = `
 <div class="title">
     <input type="text" class="textInput" value="性别"/>
 </div>
-<div>
-    <div class="title"><input type="radio" class="textdiv" name="sex">男</div><br/>
-    <div class="title"><input type="radio" class="textdiv" name="sex">女</div><br/>
-</div>
+<ul>
+    <div class="title"><input type="radio" class="textdiv" name="sex"><input type="text" class="textInput" value="男"></div><br/>
+    <div class="title"><input type="radio" class="textdiv" name="sex"><input type="text" class="textInput" value="女"></div><br/>
+</ul>
 `
 function sexFunc(){
     let countSpan = `<span class='count'>${count}</span>`;
@@ -34,6 +42,10 @@ function sexFunc(){
     const item = document.createElement('div');
     item.innerHTML = sex_html;
     common(item);
+
+    item.id = randomString();
+    temp = {id:item.id,type:'sex',title:'性别',value:[]};
+    setData(item);
 }
 
 // 单项填空
@@ -47,11 +59,15 @@ const onlyBlank_template = `
     </div>
     <div class="box"></div>`;
 function onlyBlank(){
+    const item = document.createElement('div');
     let countSpan = `<span class='count'>${count}</span>`;
     let onlyBlank_html = countSpan + onlyBlank_template;
-    const item = document.createElement('div');
     item.innerHTML = onlyBlank_html;
     common(item);
+
+    item.id = randomString();
+    temp = {id:item.id,type:'onlyBlank',title:'请填写本项内容'};
+    setData(item);
 }
 
 // 多项填空
@@ -95,6 +111,10 @@ function multiBlank(){
     common(item);
     delete2Func(item);
     addBtn(item,'multiBlank');
+
+    item.id = randomString();
+    temp = {id:item.id,type:'multiBlank',title:'请填写以下内容',value:[]};
+    setData(item);
 }
 
 // 单项选择
@@ -109,13 +129,13 @@ const onlyChoose_template = `
     <ul>
         <li class="option-list">
             <div class="option-item">
-                <div class="title"><input type="radio" class="textdiv" name="sex">选项1</div>
+                <div class="title"><input type="radio" class="textdiv" name="only"><input type="text" class="textInput" value="选项1"></div>
                 <img class="delete2" src='img/delete2.png' />
             </div>
         </li>
         <li class="option-list">
             <div class="option-item">
-                <div class="title"><input type="radio" class="textdiv" name="sex">选项2</div>
+                <div class="title"><input type="radio" class="textdiv" name="only"><input type="text" class="textInput" value="选项2"></div>
                 <img class="delete2" src='img/delete2.png' />
             </div>
         </li>
@@ -132,6 +152,10 @@ function onlyChoose(){
     common(item);
     delete2Func(item);
     addBtn(item,'onlyChoose');
+
+    item.id = randomString();
+    temp = {id:item.id,type:'onlyChoose',title:'请选择一个选项',value:[]};
+    setData(item);
 }
 
 // 多项选择
@@ -146,13 +170,13 @@ const multiChoose_template = `
     <ul>
         <li class="option-list">
             <div class="option-item">
-                <div class="title"><input type="checkbox" class="textdiv" name="sex">选项1</div>
+                <div class="title"><input type="checkbox" class="textdiv"><input type="text" class="textInput" value="选项1"></div>
                 <img class="delete2" src='img/delete2.png' />
             </div>
         </li>
         <li class="option-list">
             <div class="option-item">
-                <div class="title"><input type="checkbox" class="textdiv" name="sex">选项2</div>
+                <div class="title"><input type="checkbox" class="textdiv"><input type="text" class="textInput" value="选项2"></div>
                 <img class="delete2" src='img/delete2.png' />
             </div>
         </li>
@@ -169,6 +193,10 @@ function multiChoose(){
     common(item);
     delete2Func(item);
     addBtn(item,'multiChoose');
+
+    item.id = randomString();
+    temp = {id:item.id,type:'multiChoose',title:'请选择以下选项（多选）',value:[]};
+    setData(item);
 }
 
 // 下拉选择
@@ -213,41 +241,18 @@ function onlySelect(){
     common(item);
     delete2Func(item);
     addBtn(item,'onlySelect');
+
+    item.id = randomString();
+    temp = {id:item.id,type:'onlySelect',title:'请选择一个选项',value:[]};
+    setData(item);
 }
 
-// 多级下拉
-const multiSelect_template = `
-    <span class='right-icon'>
-            <img class="delete" src='img/delete.png'/>
-            <img class="move" src='img/move.png'/>
-    </span>
-    <div class="title">
-        <input type="text" class="textInput" value="请选择以下选项"/>
-    </div>
-    <div class="cascader_box">
-        <select class="cascader_item">
-            <option>请选择</option>
-            <option>选项1</option>
-        </select>
-        <select class="cascader_item">
-            <option>请选择</option>
-            <option>选项1-1</option>
-        </select>
-    </div>
-    <div class="btn-box">
-        <button class="edit-option-list">编辑选项</button>
-        <button>导入选项</button>
-    </div>
-    `
-function multiSelect(){
-    let countSpan = `<span class='count'>${count}</span>`;
-    let multiSelect_html = countSpan + multiSelect_template;
-    const item = document.createElement('div');
-    item.innerHTML = multiSelect_html;
-    common(item);
-
-    const btn = item.querySelector('.edit-option-list');
-    btn.addEventListener('click',function(){
-        
-    })
-}
+// function listData(item){
+//     console.log(1);
+//     // 获取最新添加的节点中的input节点
+//     let input  = item.querySelector('ul').lastElementChild.querySelector('.textInput');
+//     input.id = randomString();
+//     // let valueArr = getObj(data,item.id).value
+//     getObj(data,item.id).value.push({id:input.id,title:input.value});
+//     form_data.innerHTML = JSON.stringify(data);
+// }

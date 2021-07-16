@@ -30,7 +30,7 @@
                     <button onclick="onlyChoose()">单项选择</button>
                     <button onclick="multiChoose()">多项选择</button>
                     <button onclick="onlySelect()">下拉选择</button>
-                    <button onclick="multiSelect()">多级下拉</button>
+                    <button>多级下拉</button>
                 </div>
             </div>
         </div>
@@ -40,12 +40,69 @@
                 <h3>表单标题</h3>
                 <p>感谢您能抽出几分钟时间来填写以下内容，现在我们就马上开始吧！</p>
             </div>
-            <div class="question"></div>
+            <div class="question">
+                <!-- <div class="item">
+                    <span class='count'>1</span>
+                    <span class='right-icon'>
+                        <img class="delete" src='img/delete.png'/>
+                        <img class="move" src='img/move.png'/>
+                    </span>
+                    <div class="title">
+                        <input type="text" class="textInput" value="请选择以下选项"/>
+                    </div>
+                    <div class="cascader_box">
+                        <select class="cascader_item">
+                            <option>请选择</option>
+                            <option>选项1</option>
+                        </select>
+                        <select class="cascader_item">
+                            <option>请选择</option>
+                        </select>
+                    </div>
+                    <div class="btn-box">
+                        <button class="edit-option-list">编辑选项</button>
+                        <button>导入选项</button>
+                    </div>
+                    <div class="add-cascader-choose">
+                        <div class="add-header">编辑选项</div>
+                        <div class="add-content">
+                            <div class="cascader first-cascader">
+                                <div class="cascader-header">
+                                    一级选项
+                                </div>
+                                <div class="cascader-list">
+                                    <div>
+                                        <input type="text" value="请选择">
+                                    </div>
+                                    <div>
+                                        <span>1.</span>
+                                        <input type="text" value="选项1">
+                                        <img src="" alt="" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cascader second-cascader"></div>
+                            <div class="cascader third-cascader"></div>
+                            <div class="cascader forth-cascader"></div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="bg"></div>
         </div>
+        <div class="form-data">[]</div>
         
    </div>
 
+   <!-- 引入变量 -->
+   <script src="js/variable.js"></script>
+   <script src="js/tool.js"></script>
+
    <script src="js/common.js"></script>
+    <!-- 工具（生成随机数 + 根据id查找数组对象） -->
+   <script src="js/data.js"></script>
    <script src="js/special.js"></script>
+
+   <script src="js/cascader.js"></script>
 </body>
 </html>

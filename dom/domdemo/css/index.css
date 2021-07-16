@@ -40,8 +40,8 @@ body {
 
 .right {
   float: left;
-  width: 800px;
-  margin-left: 300px;
+  width: 700px;
+  margin-left: 280px;
   margin-top: 20px;
 }
 
@@ -58,7 +58,6 @@ body {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 18px 50px 18px 20px;
   margin: 10px;
-  position: relative;
 }
 
 .question .item .count::before {
@@ -162,7 +161,6 @@ body {
 .question .item .btn-box {
   margin-top: 10px;
   margin-left: 29px;
-  display: none;
 }
 
 .question .item .btn-box button {
@@ -224,6 +222,19 @@ body {
   font-size: 14px;
   color: #aaa;
   outline: none;
+}
+
+.form-data {
+  box-sizing: border-box;
+  float: right;
+  position: fixed;
+  top: 20px;
+  left: 990px;
+  width: 350px;
+  min-height: 250px;
+  background-color: #fff;
+  padding: 30px;
+  font-size: small;
 }
 
 .item-active {

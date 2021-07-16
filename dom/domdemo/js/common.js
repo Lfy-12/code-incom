@@ -1,11 +1,7 @@
-// 变量
-let count = 1;
 let multi_blank_count = 2;
 let only_choose_count = 2;
 let multi_choose_count = 2;
 let only_down_count = 2;
-
-const form = document.querySelector('.question');
 
 // 所有按钮共有的功能函数
 function common(item){
@@ -59,9 +55,11 @@ function common(item){
         form.removeChild(this.parentNode.parentNode);
         count = count-1;
         const countDiv = document.querySelectorAll('.count');
-        for(let i=0;i<count;i++){
+        for(let i=0;i<count-1;i++){
             countDiv[i].innerHTML = i+1;
         }
+
+        deleteItemData(item);
     })
     
     // 添加监听器：激活title样式
@@ -84,6 +82,8 @@ function common(item){
 // "添加单个选项"按钮的功能函数
 function addBtn(item,html_template){
     const addBtn = item.querySelector('.add-option-list');
+    // 各个item的list项目条数
+    item.list_count = 2;
     addBtn.addEventListener('click',function(){
         const li = document.createElement('li');
         li.className = 'option-list';
@@ -93,43 +93,41 @@ function addBtn(item,html_template){
                 li.innerHTML = `
                 <div class="option-item">
                     <div class="title">
-                        <input type="text"  class="textInput" value="填空${multi_blank_count+1}"/>
+                        <input type="text"  class="textInput" value="填空${item.list_count+1}"/>
                     </div>
                     <img class="delete2" src='img/delete2.png' />
                 </div>
                 <div class="box"></div>`;
-                multi_blank_count++;
                 break;
             // 单项选择
             case 'onlyChoose':
                 li.innerHTML = `
                 <div class="option-item">
-                    <div class="title"><input type="radio" class="textdiv" name="sex">选项${only_choose_count+1}</div>
+                    <div class="title"><input type="radio" class="textdiv" name="only"><input type="text" class="textInput" value="选项${item.list_count+1}"></div>
                     <img class="delete2" src='img/delete2.png' />
                 </div>`;
-                only_choose_count++;
                 break;
             // 多项选择
             case 'multiChoose':
                 li.innerHTML = `
                 <div class="option-item">
-                    <div class="title"><input type="checkbox" class="textdiv" name="sex">选项${multi_choose_count+1}</div>
+                    <div class="title"><input type="checkbox" class="textdiv"><input type="text" class="textInput" value="选项${item.list_count+1}"></div>
                     <img class="delete2" src='img/delete2.png' />
                 </div>`;
-                multi_choose_count++;
                 break;
             case 'onlySelect':
                 li.innerHTML = `
                 <div class="option-item">
                     <div class="title">
                         <img class="circle" src="img/down.png"/>
-                        <input type="text"  class="textInput" value="选项${only_down_count+1}"/>
+                        <input type="text"  class="textInput" value="选项${item.list_count+1}"/>
                     </div>
                     <img class="delete2" src='img/delete2.png' />
                 </div>`;
-                only_down_count++;
                 break;
         }
+        // item中的项目数加1
+        item.list_count++;
        
         const ul = item.querySelector('ul');
         ul.appendChild(li);
@@ -155,6 +153,9 @@ function addBtn(item,html_template){
             titleBg(itemtitle)
             titleSelectAll(itemtitle);
         })
+
+        addListData(item);
+
     })
 }
 
@@ -187,12 +188,12 @@ function titleBg(itemTitle){
 function titleSelectAll(itemTitle){
     const textInput = itemTitle.querySelector('.textInput');
     if(textInput) textInput.select();
-    const textdiv = itemTitle.querySelector('.textdiv');
-    if(textdiv){
-        var selection = window.getSelection();
-        selection.removeAllRanges();
-        var range = document.createRange();
-        range.selectNodeContents(textdiv.nextSibling);
-        selection.addRange(range);
-    }
+    // const textdiv = itemTitle.querySelector('.textdiv');
+    // if(textdiv){
+    //     var selection = window.getSelection();
+    //     selection.removeAllRanges();
+    //     var range = document.createRange();
+    //     range.selectNodeContents(textdiv.nextSibling);
+    //     selection.addRange(range);
+    // }
 }
