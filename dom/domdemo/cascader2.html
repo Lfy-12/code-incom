@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript实现下拉框动态绑定与级联功能</title>
+    <style>
+    table{
+        border-top: 1px solid #000000;
+        border-left: 1px solid #000000;
+        border-collapse: collapse; /*设置单元格的边框合并为1*/
+    }
+    th, td{
+        border-bottom: 1px solid #000000;
+        border-right: 1px solid #000000;
+        padding: 5px 10px;
+    }
+    select{
+        width: 100px;
+        padding: 3px;
+    }
+    </style>
+</head>
+<body>
+<div align="center">
+    <form name="myForm">
+        <table border="1" cellspacing="0">
+            
+            <tr>
+                <th>省份：</th>
+                <td>
+                    <select id="selProvince" onchange="bindCity()">
+                        <option>请选择</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>城市：</th>
+                <td>
+                    <select id="selCity">
+                        <option>请选择</option>
+                    </select>
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</div>
+<script>
+    //页面初始化
+    window.onload = function () {
+        //绑定省份下拉框
+        bindProvince();
+    };
+ 
+    //绑定省份下拉框
+    function bindProvince()
+    {
+        //获取下拉框对象
+        let selProvince = document.getElementById("selProvince");
+ 
+        //清空下拉框选项
+        selProvince.options.length = 0;
+        selProvince.add(new Option("请选择", ""));
+ 
+        //绑定下拉框选项
+        let json = '[{"key":"广东省","value":"1001"},{"key":"湖南省","value":"1002"}]';
+        let arr = eval("(" + json + ")"); //转换后的JSON对象
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i].key;
+            let value = arr[i].value;
+            selProvince.add(new Option(key, value));
+        }
+    }
+ 
+    //绑定城市下拉框
+    function bindCity()
+    {
+        //获取下拉框对象
+        let selProvince = document.getElementById("selProvince");
+        let selCity = document.getElementById("selCity");
+ 
+        //清空下拉框选项
+        selCity.options.length = 0;
+        selCity.add(new Option("请选择", ""));
+ 
+        //获取省份的选项值
+        let province = selProvince.value;
+ 
+        //根据省份获取城市列表
+        let json = "";
+        switch (province) {
+            case "1001": {
+                json = '[{"key":"深圳市","value":"1001001"},{"key":"广州市","value":"1001002"}]';
+                break;
+            }
+            case "1002": {
+                json = '[{"key":"长沙市","value":"1002001"},{"key":"怀化市","value":"1002002"}]';
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+ 
+        if(json){
+            //绑定下拉框选项
+            let arr = eval("(" + json + ")"); //转换后的JSON对象
+            for (let i = 0; i < arr.length; i++) {
+                let key = arr[i].key;
+                let value = arr[i].value;
+                selCity.add(new Option(key, value));
+            }
+        }
+    }
+ 
+    //提交
+    function submitFrom() {
+        let province = document.getElementById("selProvince").value;
+        let city = document.getElementById("selCity").value;
+ 
+        if(!province)
+        {
+            alert("请选择省份！");
+            return;
+        }
+ 
+        if(!city)
+        {
+            alert("请选择城市！");
+            return;
+        }
+ 
+        let msg = "您选择的省份编码为["+province+"],城市编码为["+city+"]";
+        alert(msg);
+    }
+ 
+    //重置
+    function resetFrom() {
+        //重置表单
+        document.getElementsByName("myForm")[0].reset();
+ 
+        //清空下拉框选项
+        let selCity = document.getElementById("selCity");
+        selCity.options.length = 0;
+        selCity.add(new Option("请选择", ""));
+    }
+</script>
+</body>
+</html>

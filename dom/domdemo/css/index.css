@@ -208,11 +208,24 @@ body {
   margin-right: 10px;
 }
 
-.question .cascader_box {
+.form-data {
+  box-sizing: border-box;
+  position: fixed;
+  top: 20px;
+  left: 990px;
+  max-height: 500px;
+  width: 370px;
+  background-color: #fff;
+  padding: 10px;
+  font-size: smaller;
+  overflow-y: scroll;
+}
+
+.cascader_box {
   margin: 5px 0 0 30px;
 }
 
-.question .cascader_box .cascader_item {
+.cascader_box .cascader_item {
   border: 1px solid #d8d8d8;
   border-radius: 2px;
   width: 120px;
@@ -224,17 +237,93 @@ body {
   outline: none;
 }
 
-.form-data {
-  box-sizing: border-box;
-  float: right;
-  position: fixed;
-  top: 20px;
-  left: 990px;
-  width: 350px;
-  min-height: 250px;
+.add-cascader-choose {
+  width: 900px;
+  height: 500px;
   background-color: #fff;
-  padding: 30px;
+  position: fixed;
+  top: 60px;
+  left: 240px;
+  display: none;
+  z-index: 90;
+}
+
+.add-cascader-choose .add-header {
+  height: 20px;
+  padding: 15px 0 15px 35px;
+  color: #333232;
+}
+
+.add-cascader-choose .add-header .close {
+  height: 30px;
+  width: 30px;
+  float: right;
+  margin-right: 20px;
+}
+
+.add-cascader-choose .add-content {
+  width: 100%;
+  height: 400px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+}
+
+.add-cascader-choose .add-content .cascader {
+  flex: 0.25;
+  border-right: 1px solid #dde5ed;
+  padding: 15px 0 0 25px;
+  color: #a1a3a5;
+}
+
+.add-cascader-choose .add-content .cascader .cascader-header {
+  margin-bottom: 10px;
+}
+
+.add-cascader-choose .add-content .cascader .cascader-list input {
+  border: 1px solid #b2b3b4;
+  padding: 3px 5px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+  width: 85%;
+  height: 20px;
+  color: #a1a3a5;
   font-size: small;
+}
+
+.add-cascader-choose .add-content .add-cascader {
+  border: none;
+  background-color: #f9f9f9;
+  margin-top: 10px;
+  color: #a1a3a5;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(190, 190, 190, 0.384);
+  z-index: 2;
+  display: none;
+}
+
+.list-box {
+  position: relative;
+}
+
+.cascader_btn {
+  float: right;
+}
+
+.cascader_btn button {
+  width: 80px;
+  height: 30px;
+  background-color: #2672ff;
+  color: white;
+  border: none;
+  margin: 10px 20px 0 0;
 }
 
 .item-active {
@@ -243,4 +332,8 @@ body {
 
 .title-active {
   background-color: #ebeef1;
+}
+
+.add-cascader-active {
+  border: 1px blue solid !important;
 }

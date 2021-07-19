@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<head> 
+ <meta charset="utf-8"> 
+ <title></title> 
+</head> 
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+<script type="text/javascript" src="USjs.js"></script> 
+<body> 
+ 
+<div class="container"> 
+ <table> 
+    <tr> 
+        <td>厂商：</td> 
+        <td><select id="selF"><option>请选择</option></select></td> 
+        <td>品牌：</td> 
+        <td><select id="selT"><option>请选择</option></select></td> 
+        <td>型号：</td> 
+        <td><select id="selC"><option>请选择</option></select></td> 
+        <td><input type="button" value="查询" id="Button1" class="btn" /></td> 
+    </tr> 
+ </table> 
+</div> 
+ 
+
+<script>
+$(function(){ 
+ 
+    function objInit(obj){ 
+        return $(obj).html('<option>请选择</option>'); 
+    } 
+ 
+    $.getJSON('data.json', function(json) { 
+        var arrData = json;
+
+        // 初始化,【一级】菜单
+        // pF索引值,pV值
+        $.each(arrData,function(pF,pV){
+            $('#selF').append('<option value="'+pF+'">'+pV.n+'</option>'); 
+        }); 
+
+        // 【一级】
+        $('#selF').change(function(){ 
+            // 初始化,二级和三级
+            objInit('#selT'); 
+            objInit('#selC'); 
+
+            $.each(arrData,function(pF,pS){ 
+                console.log(pF);
+                console.log(pS);
+                if($('#selF option:selected').attr('value')==pF){ 
+                    $.each(pS.s,function(pT,pC){ 
+                    $('#selT').append('<option value="'+pT+'">'+pC.n+'</option>'); 
+                    }); 
+
+                    // 【二级】
+                    $('#selT').change(function(){ 
+                        objInit('#selC'); 
+
+                        $.each(pS.s,function(pT,pC){ 
+                            if($('#selT option:selected').attr('value')==pT){ 
+                            $.each(pC.s,function(ii,vv){ 
+                            $('#selC').append('<option value="'+ii+'">'+vv.n+'</option>'); 
+                            })}
+                        })
+                    }); 
+                } 
+            }) 
+        }); 
+    }); //getJSON 
+}); 
+</script>
+</body> 
+</html> 

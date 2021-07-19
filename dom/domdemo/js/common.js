@@ -58,8 +58,6 @@ function common(item){
         for(let i=0;i<count-1;i++){
             countDiv[i].innerHTML = i+1;
         }
-
-        deleteItemData(item);
     })
     
     // 添加监听器：激活title样式
@@ -153,9 +151,6 @@ function addBtn(item,html_template){
             titleBg(itemtitle)
             titleSelectAll(itemtitle);
         })
-
-        addListData(item);
-
     })
 }
 

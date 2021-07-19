@@ -246,13 +246,3 @@ function onlySelect(){
     temp = {id:item.id,type:'onlySelect',title:'请选择一个选项',value:[]};
     setData(item);
 }
-
-// function listData(item){
-//     console.log(1);
-//     // 获取最新添加的节点中的input节点
-//     let input  = item.querySelector('ul').lastElementChild.querySelector('.textInput');
-//     input.id = randomString();
-//     // let valueArr = getObj(data,item.id).value
-//     getObj(data,item.id).value.push({id:input.id,title:input.value});
-//     form_data.innerHTML = JSON.stringify(data);
-// }

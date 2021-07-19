@@ -1,3 +1,4 @@
+// 生成随机字符串
 function randomString() {
   var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var result = '';
@@ -6,6 +7,7 @@ function randomString() {
   return result;
 }
 
+// 根据id查找数组对象
 function getObj(arr,_id){
   return arr.find( item => item.id ===  _id)
 }
