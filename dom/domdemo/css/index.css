@@ -280,10 +280,11 @@ body {
   margin-bottom: 10px;
 }
 
-.add-cascader-choose .add-content .cascader .cascader-list input {
+.add-cascader-choose .add-content .cascader .cascader-list .input-box {
+  position: relative;
   border: 1px solid #b2b3b4;
   padding: 3px 5px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   margin-right: 15px;
   width: 85%;
   height: 20px;
@@ -291,11 +292,55 @@ body {
   font-size: small;
 }
 
+.add-cascader-choose .add-content .cascader .cascader-list .fake-input-box {
+  position: relative;
+  border: 1px solid #b2b3b4;
+  padding: 3px 5px;
+  margin-bottom: 8px;
+  margin-right: 15px;
+  width: 85%;
+  height: 20px;
+  color: #a1a3a5;
+  font-size: small;
+  display: none;
+}
+
+.add-cascader-choose .add-content .cascader .cascader-list input {
+  color: #a1a3a5;
+  font-size: small;
+  padding: 3px;
+}
+
+.add-cascader-choose .add-content .cascader .cascader-list .add-cascader-active {
+  border: 1px #2672ff solid;
+}
+
+.add-cascader-choose .add-content .cascader .cascader-list .add-cascader-active::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 7px;
+  z-index: 95;
+  border: 6px solid transparent;
+  border-left-color: #2672ff;
+}
+
+.add-cascader-choose .add-content .cascader .cascader-list .delete3 {
+  position: absolute;
+  right: -9px;
+  top: -8px;
+  width: 12px;
+  height: 12px;
+  z-index: 99;
+  display: none;
+}
+
 .add-cascader-choose .add-content .add-cascader {
   border: none;
   background-color: #f9f9f9;
   margin-top: 10px;
   color: #a1a3a5;
+  display: none;
 }
 
 .bg {
@@ -307,10 +352,6 @@ body {
   background: rgba(190, 190, 190, 0.384);
   z-index: 2;
   display: none;
-}
-
-.list-box {
-  position: relative;
 }
 
 .cascader_btn {
@@ -332,8 +373,4 @@ body {
 
 .title-active {
   background-color: #ebeef1;
-}
-
-.add-cascader-active {
-  border: 1px blue solid !important;
 }
