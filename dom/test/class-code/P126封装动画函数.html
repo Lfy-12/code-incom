@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+
+</head>
+<body>
+    <button class="btn500">点击夏雨荷到500</button>
+    <button class="btn800">点击夏雨荷到800</button>
+    <span>夏雨荷</span>
+
+    <script>
+        // obj移动对象  target目标位置  callback回调函数
+        function animation(obj,target,callback){
+
+            // 清除之前的定时器，防止定时器叠加，导致速度加快
+            clearInterval(obj.timer)
+
+            obj.timer = setInterval(()=>{
+
+                // 停止动画 即停止定时器，并调用回调函数
+                if(obj.offsetLeft == target){
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+
+                // 缓动动画 核心算法：(目标值 - 现在的位置)/10 做为每次移动的距离 步长
+                let step = (target - obj.offsetLeft) / 10;
+                // 进行步长处理，使obj精准降落在target上(结合obj.offsetLeft == target)
+                step = step>0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            },15)
+        }
+
+        let btn500 = document.querySelector('.btn500');
+        let btn800 = document.querySelector('.btn800');
+        let span = document.querySelector('span')
+        btn500.addEventListener('click',function(){
+            animation(span,500)
+        })
+        btn800.addEventListener('click',function(){
+            animation(span,800,function(){
+                span.style.backgroundColor = 'red'
+            })
+        })
+    </script>
+</body>
+</html>

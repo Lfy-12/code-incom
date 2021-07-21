@@ -209,7 +209,7 @@
     forward()
     go(参数)
 
-# 
+# PC端网页特效
 ## offset系列
     element.offsetParent  (带有定位的)
     element.offsetTop
@@ -246,3 +246,15 @@
        mouseenter只会经过自身盒子触发
     2. 之所以这样子，就是因为mouseenter不会冒泡
     3. 跟mouseenter搭配鼠标离开mouseleave同样不会冒泡
+
+# 网页端网页特效
+## 触屏事件
+    1.
+        touchstart  手指摸到一个DOM元素时触发
+        touchmove   手指在一个DOM元素上滑动时触发
+        touchend    手指从一个DOM元素上移开时触发
+    2. 触摸事件对象
+        touches  正在触摸屏幕的所有手指的一个列表
+        targetTouches  正在触摸当前DOM元素上的手指的一个列表
+        changedTouches  手指状态发生了改变的列表，从无到有，从有到无变化
+        (因为平时我们都是给元素注册触摸事件，所以重点记住targetTouches)
