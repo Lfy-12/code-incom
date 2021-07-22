@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="" id="">
+        <button>添加</button>
+        <button>获取</button>
+        <button>删除一条数据</button>
+        <button>清空数据</button>
+    </div>
+
+    <script>
+
+        const input = document.querySelector('input')
+        const btns = document.querySelector('div').querySelectorAll('button');
+
+        btns[0].addEventListener('click',function(){
+            sessionStorage.setItem('uname',input.value)
+            sessionStorage.setItem('psw',input.value)
+        })
+        btns[1].addEventListener('click',function(){
+           let name = sessionStorage.getItem('uname')
+           alert(name)
+        })
+        btns[2].addEventListener('click',function(){
+           let name = sessionStorage.removeItem('psw')
+        })
+        btns[3].addEventListener('click',function(){
+           let name = sessionStorage.clear()
+        })
+
+
+        alert(localStorage.getItem('uname'))
+
+    </script>
+</body>
+</html>

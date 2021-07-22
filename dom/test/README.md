@@ -258,3 +258,27 @@
         targetTouches  正在触摸当前DOM元素上的手指的一个列表
         changedTouches  手指状态发生了改变的列表，从无到有，从有到无变化
         (因为平时我们都是给元素注册触摸事件，所以重点记住targetTouches)
+
+# 本地存储
+    1. window.sessionStorage
+        特点：
+            1.生命周期为关闭浏览器窗口
+            2.在同一个窗口(页面)下数据可以共享
+            3.以键值对的形式存储使用
+        用法：
+            1. 存储数据 sessionStorage.setItem(key,value)
+            2. 获取数据 sessionStorage.getItem(key)
+            3. 删除数据 sessionStorage.removeItem(key)
+            4. 删除所有数据 sessionStorage.clear()   
+
+
+    2. window.localStorage
+        特点：
+            1.生命周期永久生效，除非手动删除，否则关闭页面也会存在 
+            2.可以多窗口(页面)共享 (同一浏览器可以共享)
+            3.以键值对的形式存储使用
+        用法：
+            1. 存储数据 localStorage.setItem(key,value)
+            2. 获取数据 localStorage.getItem(key)
+            3. 删除数据 localStorage.removeItem(key)
+            4. 删除所有数据 localStorage.clear()   
