@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            padding: 20px;
+        }
+        ul{
+            margin: 10px;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function(){
+            // 全选、全不选
+            $('.all').change(function(){
+                $('.list,.all').prop('checked',$(this).prop('checked'))
+            })
+            // list
+            $('.list').change(function(){
+                if( $('.list:checked').length === $('.list').length){
+                    $('.all').prop('checked',true)
+                }else{
+                    $('.all').prop('checked',false)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" class="all">全选
+        <ul>
+            <div>
+                <input type="checkbox" class="list">吃饭
+            </div>
+            <div>
+                <input type="checkbox" class="list">睡觉
+            </div>
+            <div>
+                <input type="checkbox" class="list">打代码
+            </div>
+        </ul>
+        <input type="checkbox" class="all">全选
+    </div>
+</body>
+</html>

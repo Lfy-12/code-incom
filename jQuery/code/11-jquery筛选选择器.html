@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            $('div').css('background','skyblue')
+
+            $('div:first').css('color','red')
+            $('div:last').css('color','green')
+            $('div:eq(2)').css('color','blue')
+
+            $('ul li:odd').css('color','red')   //索引号 奇数
+            $('ul li:even').css('color','green')  //索引号  偶数
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div>好好学习天天向上0</div>
+    <div>好好学习天天向上1</div>
+    <div>好好学习天天向上2</div>
+    <div>好好学习天天向上3</div>
+    <div>好好学习天天向上5</div>
+
+    <ol>
+        <li>hiiiii</li>
+    </ol>
+
+    <ul>
+        <li>good good study day day up 0</li>
+        <li>good good study day day up 1</li>
+        <li>good good study day day up 2</li>
+        <li>good good study day day up 3</li>
+    </ul>
+</body>
+</html>
