@@ -201,7 +201,7 @@ function fadeOut(element){
 
 
 ### jQuery其他方法
-    1.对象拷贝
+    1. 对象拷贝
         语法：$.extend([deep],target,object1,[objectN])
         ● deep：true为深拷贝，默认false浅拷贝
         ● target：要拷贝的目标对象
@@ -209,3 +209,22 @@ function fadeOut(element){
         ● 浅拷贝是把被拷贝对象object中复杂数据类型中的地址拷贝给目标对象target
             修改目标对象会影响被拷贝对象
         ● 深拷贝 完全克隆(拷贝的是对象 而不是地址) 修改目标对象不会影响被拷贝对象
+    2. 多库共存
+        问题概述：
+            jQuery使用$作为标示符，随着jQuery的流行，其他库也会使用这$作为标示符，这样一起使用会引起冲突
+        客观需求：
+            需要一个解决方案，让jQuery和其他的js库不存在冲突，可以同时存在，这就叫做多库共存
+        jQuery解决方案：
+            ● 把里面的 $ 符号统一改为jQuery  比如jquery('div)
+            ● jQuery变量规定新的名称：$.noConflict()  比如 let xx = $.noConflict()
+    3. jQuery插件
+        jQuery插件常用的网站：
+            ● jQuery插件库   http://www.jq22.com/
+            ● jQuery之家   http://www.htmleaf.com/
+        案例：
+            瀑布流
+            图片懒加载
+            全屏滚动(fullpage.js)
+                gitHub: https://github.com/alvarotrigo/fullPage.js
+                中文翻译网： http://www.dowebok.com/demo/2014/77/
+            bootstrap JS插件
