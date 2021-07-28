@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+        .current{
+            background: crimson;
+        }
+    </style>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function(){
+            // 1.单个事件注册
+            // $('div').click(function(){
+            //     $(this).css('background','red')
+            // })
+            // $('div').mouseenter(function(){
+            //     $(this).css('background','green')
+            // })
+
+            // 2.事件处理on
+
+            // (1-1)同时绑定绑定多个事件
+            // $('div').on({
+            //     click: function(){$(this).css('background','red')},
+            //     mouseenter: function(){$(this).css('background','green')},
+            //     mouseleave: function(){$(this).css('background','blue')}
+            // })
+            // (1-2)如果事件处理程序相同 可合并
+            $('div').on("mouseenter mouseleave",function(){
+                $(this).toggleClass('current')
+            })
+
+            // (2) on可以实现事件委托（委派
+            // $('ul li').click(function(){})
+            // 绑定在 ul 身上，但触发对象是li
+            $('ul').on('click','li',function(){
+                alert(1)
+            })
+
+            // (3) on可以给未来动态创建的元素绑定事件
+            // $('ol li').click(function(){
+            //     alert(2)
+            // })
+            $('ol').on('click','li',function(){
+                alert(2)
+            })
+            let li = $('<li>我是后来创建的</li>')
+            $('ol').append(li)
+        })
+    </script>
+
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ol>
+        <li>hii</li>
+    </ol>
+</body>
+</html>

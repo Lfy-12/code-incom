@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid grey;
+            width: 500px;
+            padding: 10px;
+        }
+        textarea {
+            outline: none;
+            resize: none;
+        }
+        ul{
+            width: 300px;
+            list-style: none;
+        }
+        li{
+            border-bottom: 1px dashed grey;
+            display: none;
+        }
+        a{
+            float: right;
+        }
+    </style>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function(){
+            // 发布按钮
+            $('button').on('click',function(){
+                // 创建新节点li 并设置节点的html
+                let li = $(`
+                    <li>
+                        ${ $('textarea').val() }
+                        <a href="javascript:;">删除</a>
+                    </li>
+                `);
+                // 在ul前添加li
+                $('ul').prepend(li);
+                // li向下滑动的动画
+                li.slideDown();
+                // 清空文本框
+                $('textarea').val('')
+            })
+
+            // 删除事件
+            // 注意：a标签要设置为点击不跳转 href="#" | href="javascript:;"
+            $('ul').on('click','a',function(){
+                // 事件绑定在ul上，但触发对象是a ，所以$(this)为 a 
+                console.log($(this));
+                // li向上滑动隐藏的动画  并回调函数-删除li
+                $(this).parent().slideUp(function(){
+                    $(this).remove()
+                });
+            })
+
+        })
+    </script>
+
+</head>
+<body>
+    <div>
+        <span>发布留言</span>
+        <textarea  id="" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul>
+        </ul>
+    </div>
+</body>
+</html>
