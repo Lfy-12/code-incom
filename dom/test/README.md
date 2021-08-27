@@ -104,6 +104,31 @@
     3.attachEvent (IE9以前的版本支持) --不推荐
         div.attachEvent('onclick',function(){alert('hi')})
 
+## addEventListener
+    使用addEventListener添加事件处理程序有以下几个特点：
+        ● transtionend / DOMContentLoaded 等事件类型只能使用 addEventListener 处理
+        ● 同一事件类型设置多个事件处理程序，按设置的顺序先后执行
+        ● 也可以对未来添加的元素绑定事件
+```
+<div id="app">
+  <h2>houdunren.com</h2>
+</div>
+
+<script>
+  function show() {
+    console.log(this.textContent)
+  }
+  const app = document.querySelector('#app')
+  const h2 = document.querySelectorAll('h2')
+  app.addEventListener('click', () => {
+    show.call(event.target)
+  })
+  let newH2 = document.createElement('h2')
+  newH2.textContent = 'hdcms.com'
+  app.append(newH2)
+</script>
+```
+
 ## 删除事件(见P60删除事件.html)
 
 ## DOM事件流
@@ -116,6 +141,9 @@
             第三个参数是false(不写默认就是false),表示在事件冒泡阶段调用事件处理程序
     3.实际开中我们很少使用事件捕获，我们更关注事件冒泡
     4.有些事件是没有冒泡的，比如 onblur、onfocus、onmouseenter、onmouseleave
+
+    5.event.target 可以在事件链中最底层的定义事件的对象
+      event.currentTarget == this 即当前执行事件的对象
 
 ## 事件对象
     1.什么是事件对象
@@ -146,12 +174,21 @@
     1.contextmenu 禁用右键菜单
       selectstart 禁止选中文字
 
-    2.event.clientX  返回鼠标相对于浏览器窗口可视区的X坐标
-      event.clientY
-      event.pageX    返回鼠标相对于页面文档的X坐标 IE9+支持 
-      event.pageY
-      event.screenX  返回鼠标相对电脑屏幕的X坐标
-      event.screenY
+    2.事件对象
+        event.clientX  返回鼠标相对于浏览器窗口可视区的X坐标
+        event.clientY
+        event.pageX    返回鼠标相对于页面文档的X坐标 IE9+支持 
+        event.pageY
+        event.screenX  返回鼠标相对电脑屏幕的X坐标
+        event.screenY
+
+        event.offsetX  相对于事件对象的X坐标
+        event.offsetY
+
+        window.pageXOffset	文档参考窗口水平滚动的距离
+
+        target   事件目标对象，冒泡方式时父级对象可以通过该属性找到在哪个子元素上最终执行事件
+        currentTarget   当前执行事件的对象
 
 ## 常用键盘事件
     onkeyup      某个键盘按键被(松开)时触发

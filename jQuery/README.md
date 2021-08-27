@@ -77,9 +77,9 @@ function fadeIn(element,speed){
         var speed = speed || 30 ;
         var num = 0;
         var st = setInterval(function(){
-        num++;
-        element.style.opacity = num/10;
-        if(num>=10)  {  clearInterval(st);  }
+            num++;
+            element.style.opacity = num/10;
+            if(num>=10)  {  clearInterval(st);  }
         },speed);
     }
 }

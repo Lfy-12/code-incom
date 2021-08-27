@@ -13,15 +13,19 @@
             let num1 = await new Promise(resolve=>{
                 setTimeout(() => {
                     console.log('num1-1');
-                    resolve()
+                    resolve();
                 }, 1000);
             })
             console.log('num1-2');
             let num2 = await new Promise(resolve=>{
                 setTimeout(() => {
                     console.log('num2');
+                    // resolve();
                 }, 1000);
             })
+            // 上一个await的状态是pending，没有设置为fulfilled
+            // 所以这一行无法执行
+            console.log('no ending');
         }
 
         // promise

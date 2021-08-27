@@ -177,6 +177,7 @@
             document.addEventListener('mouseup',function(){
                 document.removeEventListener('mousemove',move);
             })
+
             function move(event){
                 loginBox.style.left = event.pageX - innerX + 'px';
                 loginBox.style.top = event.pageY - innerY + 'px';

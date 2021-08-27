@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // async function fy() {
+        //     const promise = new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve("lfy");
+        //             console.log(1);
+        //         }, 2000);
+        //     });
+        //     console.log(2);
+        //     let result = await promise;
+        //     console.log(3);
+        //     console.log(result);
+        // }
+        // fy();
+
+        async function p1() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("houdunren");
+                    resolve();
+                }, 2000);
+            });
+        }
+        async function p2() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("hdcms");
+                    resolve();
+                }, 2000);
+            });
+        }
+        async function hd() {
+  await Promise.all([p1(), p2()]);
+}
+hd();
+    </script>
+</body>
+
+</html>

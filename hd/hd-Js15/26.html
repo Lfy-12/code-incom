@@ -22,13 +22,13 @@
 
         const hhhh = new Promise((resolve,reject)=>{
             setTimeout(() => {
-                resolve('网络连接超时')
+                reject('网络连接超时')
             }, 1000);
         })
 
         Promise.race([lfy,lt,hhhh]).then(res=>{
             console.log(res);
-        })
+        }).catch(err=>console.log(err))
     </script>
 </body>
 </html>
