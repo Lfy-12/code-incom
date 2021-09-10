@@ -24,8 +24,9 @@
         }
 
         // 浅拷贝
-        // $.extend(target,obj);  //相同的属性会被obj中的属性覆盖掉,对象会被直接覆盖
-        // console.log(target);
+        $.extend(target,obj);  //相同的属性会被obj中的属性覆盖掉,对象会被直接覆盖
+        console.log(JSON.stringify(target,null,2));
+        console.log(target)
 
         // target.msg.news = 'jQuery';  //改变对象中的值 会同时影响obj  传递地址
         // console.log(target);
@@ -33,12 +34,12 @@
 
 
         // 深拷贝
-        $.extend(true,target,obj);   //相同的属性会被obj中的属性覆盖掉, 对象中相同的属性会被覆盖,不同的则直接合并
-        console.log(target);
+        // $.extend(true,target,obj);   //相同的属性会被obj中的属性覆盖掉, 对象中相同的属性会被覆盖,不同的则直接合并
+        // console.log(target);
 
-        target.msg.news = 'jQuery';  //改变对象中的值 不会同时影响obj  复制对象
-        console.log(target);
-        console.log(obj);
+        // target.msg.news = 'jQuery';  //改变对象中的值 不会同时影响obj  复制对象
+        // console.log(target);
+        // console.log(obj);
 
 
 

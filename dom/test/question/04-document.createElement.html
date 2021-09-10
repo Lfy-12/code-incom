@@ -11,7 +11,7 @@
 
     <script>
         const div = document.querySelector('div')
-        date01 = new Date();
+        console.time()
 
         for(let i=0;i<1000;i++){
             const p = document.createElement('p');
@@ -19,8 +19,7 @@
             div.appendChild(p);
         }
         
-        date02 = new Date();
-        console.log(date02-date01);
+        console.timeEnd()
     </script>
 </body>
 </html>

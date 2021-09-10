@@ -11,7 +11,8 @@
 
     <script>
         const div = document.querySelector('div')
-        date01 = new Date();
+        
+        console.time()
 
         let arr = [];
         for(let i=0;i<1000;i++){
@@ -19,8 +20,7 @@
         }
         div.innerHTML = arr.join('')
 
-        date02 = new Date();
-        console.log(date02-date01);
+        console.timeEnd()
     </script>
 </body>
 </html>

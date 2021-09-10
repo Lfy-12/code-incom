@@ -10,7 +10,7 @@
 ### jQuery选择器
     1. $("选择器")   //里面选择器直接写CSS选择器即可，但是要加引号 
     2. 筛选选择器
-        :first       获取第一个元素
+        :first       获取第一个元素 例：$('div:first')
         :last        获取最后一个元素
         :eq(index)   获取索引号为index的元素
         :odd         获取索引号为奇数的元素
@@ -19,7 +19,7 @@
         :checked     选中的复选框
 
     3.筛选方法
-        parent()               查找父级
+        parent()               查找父级 例：$('div').parent()
         children(selector)     相当于$('ul>li')   最近一级(亲儿子)
         find(selector)         相当于$('ul li')   后代选择器
         siblings(selector)     查找兄弟节点  不包括自己本身
@@ -106,6 +106,24 @@ function fadeOut(element){
         (1). data()方法可以在指定的元素上存取数据，并不会修改DOM元素结构。
             一旦页面刷新，之前存放的数据都将被移除(相当于一个变量)
         (2). 这个方法获取data-index H5自定义属性 不用写data-  而且返回的是数字型
+```
+<script>
+$(function(){
+    let value01 = $('div').attr('data-index');
+    console.log(typeof value01);  //string
+
+    let value02 =  $('div').data('index');
+    console.log(value02);  //2
+    console.log(typeof value02);  //number
+
+    $('div').data('uname','lfy');
+    console.log( $('div').data('uname'));  //lfy  //在页面的html中不会看到uname这个属性
+})
+</script>
+<body>
+    <div data-index="2"></div>
+</body>
+```
 
 ### jQuery文本属性值
     1. 获取/设置 普通元素内容 html()   [相当于innerHTML]
@@ -122,6 +140,25 @@ function fadeOut(element){
             })
             -- index是每个元素的索引号；domEle是每个DOM元素对象，不是jquery对象
                 所以要想使用jquery方法，需要给这个dom元素转换为jquery对象 $(domEle)
+```
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</body>
+<script>
+    $(function(){
+        let arr = ['red','green','blue'];
+        let sum = 0;
+        $('div').each(function(index,domEle){
+            $(domEle).css('color',arr[index]);
+            sum +=  parseInt($(domEle).html());
+        })
+        console.log(sum);
+    })
+</script>
+```
+
         (2) 语法2：【用于遍历数据对象】
             $.each(object,function(index,element){
                 ...
@@ -162,11 +199,39 @@ function fadeOut(element){
                 用于返回被选元素相对于带有定位的父级偏移坐标，如果父级都没有定位，则以文档为准
                 这个方法只能获取 不能设置偏移
         (3). scrollTop()/scrollLeft() 设置或获取元素被卷去的头部和左侧
+```
+<body>
+    <div class="back">返回顶部</div>
+    <div class="container">
+    </div>
+</body>
+
+<script>
+    $(function(){
+        $(document).scroll(function(){
+            // $('.container').scrollTop() X  =>  $(document).scrollTop() ✔
+            if( $(document).scrollTop() >= $('.container').offset().top){
+                $('.back').fadeIn()
+            }else{
+                $('.back').fadeOut()
+            }
+        })
+
+        $('.back').click(function(){
+            $('html').stop().animate({scrollTop:0})
+
+            // 不能是文档 而是html和body元素做动画
+            // $(document).stop().animate({scrollTop:0})
+        })
+    })
+</script>
+```
 
 ### jQuery事件
 #### 事件注册
     语法：element.事件(function(){})
     $('div').click(function(){事件处理程序})
+    $('div').mouseenter(function(){事件处理程序})
 #### 事件处理
     (1). on() 绑定事件
         on()方法在匹配元素上绑定一个或多个事件的事件处理函数
@@ -175,6 +240,12 @@ function fadeOut(element){
         可以绑定多个事件，多个处理事件处理程序；
         可以事件委派操作，事件委派的定义就是，把原来加给子元素身上的事件绑定在父元素身上，就是把事件委派给父元素；
         可以给动态生成的元素绑定事件
+```
+// 绑定在 ul 身上，但触发对象是li
+$('ul').on('click','li',function(){
+    alert(1)
+})
+```
 
     (2). off() 解绑事件
         off()方法可以移除通过on()方法添加的事件处理程序
@@ -193,12 +264,6 @@ function fadeOut(element){
     语法：element.on(events,[selector],function(event){})
     阻止默认行为：event.preventDefault() 或者 return false
     阻止冒泡： event.stopPropagation()
-
-
-
-
-
-
 
 ### jQuery其他方法
     1. 对象拷贝

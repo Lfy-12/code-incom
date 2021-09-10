@@ -130,6 +130,7 @@
         // console.log($(".nav>li"));
         $(function(){
 
+            // 显示与隐藏
             // $(".nav>li").mouseover(function(){
             //     $(this).children('ul').show()
             // })
@@ -138,13 +139,14 @@
             //     $(this).children('ul').hide();
             // })
 
-            // 事件切换
+            // 升级：过渡效果 200毫秒过渡时间
             // $(".nav>li").hover(function(){
             //     $(this).children('ul').slideDown(200)
             // },function(){
             //     $(this).children('ul').slideUp(200)
             // })
 
+            // 事件切换
             $(".nav>li").hover(function(){
                 $(this).children('ul').stop().slideToggle(200)
             })

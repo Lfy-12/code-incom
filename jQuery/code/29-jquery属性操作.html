@@ -9,14 +9,14 @@
     <script>
         $(function(){
             let value01 = $('div').attr('data-index');
-            console.log(typeof value01);
+            console.log(typeof value01);  //string
 
             let value02 =  $('div').data('index');
-            console.log(value02);
-            console.log(typeof value02);
+            console.log(value02);  //2
+            console.log(typeof value02);  //number
 
             $('div').data('uname','lfy');
-            console.log( $('div').data('uname'));
+            console.log( $('div').data('uname'));  //lfy  //在页面的html中不会看到uname这个属性
         })
     </script>
 </head>
