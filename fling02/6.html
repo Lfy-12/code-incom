@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数商云</title>
+</head>
+<body>
+  <script>
+
+    // for(var i=0;i<3;i++){
+    //   setTimeout(() => {
+    //     console.log(i);
+    //   }, 0);
+    // }
+    // for(let j=0;j<3;j++){
+    //   setTimeout(() => {
+    //     console.log(j);
+    //   }, 0);
+    // }
+    // for(var k=0;k<3;k++){
+    //   (function (k){
+    //     setTimeout(() => {
+    //     console.log(k);
+    //   }, 0);
+    //   })(k)
+    // }
+
+
+
+
+
+    function f(){console.log(this);}
+
+    const date = new Date();
+
+    (function(){
+      f();  // window
+      f.call(date);  // date
+
+      const obj = {
+        f1: f,
+        f2: ()=>{console.log(this)}
+      }
+      obj.f1();  // 
+      obj.f1.call(date);
+      obj.f1.bind(this).bind(date)();
+
+      obj.f2();
+      obj.f2.call(date);
+
+    }).call(console)
+
+    
+  </script>
+</body>
+</html>

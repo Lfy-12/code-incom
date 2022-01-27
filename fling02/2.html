@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深信服</title>
+    <style>
+        p {
+            font-size: 1rem;
+        }
+
+        .cls0.cls1 {
+            width: 200px;
+        }
+
+        div#id {
+            width: 300px;
+        }
+
+        #id.cls0 {
+            width: 400px;
+        }
+
+        div.cls0 {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>123</p>
+    <div id="id" class="cls0 cls1" style="width: 100px;"></div>
+    <button onclick="fn()">123</button>
+    <script>
+        // function A(){}
+        // A.prototype.name = 100
+        // let a = new A()
+        // console.log(a.name);  
+        // A.prototype.name = 200
+        // console.log(a.name);  
+        // A.prototype = {name:300}
+        // console.log(a.name);  
+        // // let aa = new A()
+        // // console.log(aa.name)
+
+        // Function.prototype.A = function () {
+        //     return Function.prototype.call.bind(this)
+        // }
+        // console.log(Array.prototype.push.A()([], 3, 0, 5, 8));
+
+        // function f() { console.log(this); }
+        // const date = new Date();
+        // (function () {
+        //     f();
+        //     f.call(date);
+
+        //     const obj = {
+        //         f1: f,
+        //         f2: () => { console.log(this) }
+        //     }
+        //     obj.f1();
+        //     obj.f1.call(date);
+
+        //     obj.f1.bind(this).bind(date)();  
+
+        //     obj.f2();
+        //     obj.f2.call(date);
+
+        // }).call(console)
+
+        // console.log(null>0);
+        // console.log(null<0);
+        // console.log(null>=0);
+        // console.log(null<=0);
+        // console.log(null == '');
+        // console.log('++++++++++');
+
+        // // null 0  NaN undefined ""
+        // console.log(null == 0);  //  F
+        // console.log(NaN == false);  // F
+        // console.log(null == undefined); //   T
+        // console.log([] == []);  // F
+        // console.log(undefined == '0');  // F
+
+        // console.log('------------');
+        // console.log([] == false);  // T
+        // console.log("" == false); // T
+        // console.log([] == '');   // T
+        // console.log({} == '');  // F
+
+        // console.log('=============');  
+        // console.log({} == []);  // F
+        // console.log({}+[]===0);  // F
+        // console.log([]+{} === 0); // F
+
+        // console.log(undefined === undefined);  // T
+        // // console.log(Symbol.for('a') === Symbol.for('a'));  
+        // console.log(null === null);  // T
+        // console.log(NaN === NaN);  // F
+
+        // content-length的值为编码后的数据长度
+
+        // function fn(a=1){
+        //     console.log(a);
+        // }
+        // fn()
+        // fn(undefined)
+        // fn(null)
+        // fn(false)
+
+        // let oo = {
+        //     get a(){
+        //         console.log('get');
+        //     },
+        //     set a(v){
+        //         console.log('set');
+        //     }
+        // }
+        // oo.a = '100'
+        // console.log(oo.a);
+
+        // a = [1,2,3]
+        // // console.log(Object.prototype.toString.bind(a)() );
+        // console.log(Object.prototype.toString.apply(undefined,[a]) );
+        // console.log(Object.prototype.toString.call(a));
+
+        // // error -> solve
+        // let obj = {
+        //     a:100,
+        //     log(){
+        //         a=200
+        //         console.log(this.a);
+        //     }
+        // }
+        // obj.log()
+        // let {log} = obj;
+        // log()
+
+        // let x = {
+        //     toString(){
+        //         return 20
+        //     },
+        //     valueof(){
+        //         return '30'
+        //     }
+        // }
+        // console.log(x == '20');
+        // console.log(x==30);
+
+        // 哪个命令可以查看服务器是否开放某个端口
+
+        // var a = NaN
+        // function a(){}
+        // console.log(typeof a);
+        // console.log(a);
+
+        // const btn = document.querySelector('button')
+        // function fn(){
+        //     console.log('111');
+        // }
+        // btn.disabled = true
+        // btn.setAttribute('disabled',true)
+        // // btn.enabled = false
+
+        // 哪种情况会导致浏览器https证书报警
+
+        // let Base = {
+        //     name:'base'
+        // }
+        // let A = function(){
+        //     this.name = 'a'
+        // }
+        // A.prototype = Object.create(Base)
+        // let a = new A()
+        // Base.name = 'new'
+        // console.log(a.name);  // 
+        // delete a.name
+        // console.log(a.name); //
+
+        // 哪种方式可以阻止JavaScript获取cookie中的内容  // httpOnly
+
+        // // error
+        // let xx = {
+        //     num:100
+        // }
+        // Object.defineProperty(xx,'num',{
+        //     get () {
+        //         return 200
+        //     }
+        // })
+        // xx.num = 300
+        // console.log(xx.num);
+
+        // function A(name) {
+        //     return this.name = name
+        // }
+        // console.log([0, '0', [], {}, null].map(i => i));
+        // console.log([0, '0', [], {}, null].map(i => new A(i).name));
+        // console.log([0, '0', [], {}, null].map(i => typeof new A(i).name));
+
+        // console.log(+"1.20");
+        // console.log(Number("1.20"));
+        // console.log(parseFloat("1.20"));
+        // console.log(parseInt("1.20"));
+
+        // careless
+        // {var a=0}
+        // {let b=0}
+        // {let a=1}
+        // {var b=1}
+        // console.log(a,b);
+
+        // let arr = ['a','b']
+        // for(let key in arr){
+        //     console.log(key);
+        // }
+
+        // js实现16进制颜色格式与rgb颜色格式的转换
+        // rgb 转 16进制
+        String.prototype.colorHex = function () {
+            const reg = /^(rgb|RGB)/;
+            const color = this;
+            if (reg.test(color)) {
+                let strHex = '#';
+                // 把RGB的3个数值变成数组
+                // let colorArr = color.replace(/(?:\(|\)|rgb|RGB)*/g, '').split(',');
+                let colorArr = color.slice(4, color.length - 1).split(',');
+                // 转成16进制
+                for (let item of colorArr) {
+                    let hex = Number(item).toString(16);
+                    if (hex.length == 1) hex = '0' + hex;
+                    strHex += hex;
+                }
+                return strHex
+            } else {
+                return String(color)
+            }
+        }
+        // 16进制 转 rgb
+        String.prototype.colorRgb = function () {
+            // 16进制颜色值的正则
+            const reg = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
+            // 把颜色值变成小写
+            let color = this.toLocaleLowerCase();
+            if (reg.test(color)) {
+                // 如果只有三位的值，需变成六位，如：#fff => #ffffff
+                if (color.length == 4) {
+                    let colorNew = '#';
+                    for (let i = 1; i < 4; i++) {
+                        colorNew += color[i] +color[i]
+                    }
+                    color = colorNew;
+                }
+                // 处理六位的颜色值，转为RGB
+                let colorChange = [];
+                for (let i = 1; i < 7; i=i+2) {
+                    // colorChange.push( parseInt('0x'+color.slice(i,i+2)) )
+                    colorChange.push( parseInt(color.slice(i,i+2), 16) )
+                }
+                return 'RGB(' + colorChange.join(',') + ')';
+            } else {
+                return color;
+            }
+        }
+        console.log("rgb(255,255,255)".colorHex());
+        console.log('#fff'.colorRgb());
+    </script>
+</body>
+
+</html>

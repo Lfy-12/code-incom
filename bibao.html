@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包与原型</title>
+</head>
+
+<body>
+    <script>
+        // // 闭包
+        // var scope = "global scope";
+        // function checkscope() {
+        //     var scope = "local scope";
+        //     function f() {
+        //         return scope;
+        //     }
+        //     return f;
+        // }
+
+        // var foo = checkscope();
+        // foo();
+
+        // // 闭包经典面试题1
+        // let arr = [];
+        // for(var i = 0; i < 3; i++){
+        //     arr[i] = function () {
+        //          console.log(i);
+        //     }
+        // }
+        // arr[0]();
+        // arr[1]();
+        // arr[2]();
+
+        // // 闭包经典面试题2
+        // let arr2 = [];
+        // for(var i = 0; i < 3; i++){
+        //     arr2[i] = function () {
+        //         return function () {
+
+        //             console.log(i);
+        //         }
+        //     }
+        // }
+        // arr2[0]();
+        // arr2[1]();
+        // arr2[2]();
+
+        // // 原型基础
+        // function Person () {
+
+        // }
+        // let person = new Person();
+
+        // console.log(person.__proto__ === Person.prototype);
+        // console.log(Person === Person.prototype.constructor);
+
+        // console.log(Person.prototype.__proto__ === Object.prototype);
+
+        // console.log(Object.prototype.__proto__ === null);
+
+        // console.log(person.constructor === Person);
+        // // 当获取 person.constructor 时，其实 person 中并没有 constructor 属性,当不能读取到constructor 属性时，会从 person 的原型也就是 Person.prototype 中读取，正好原型中有该属性
+        // console.log(person.constructor === Person.prototype.constructor);
+
+        // Function Object prototype 的关系
+        // console.log(Object.__proto__ === Function.prototype);
+        // console.log(Function.prototype.__proto__ === Object.prototype);
+
+        // console.log(Object instanceof Function);
+        // console.log(Function instanceof Object);
+
+        // console.log(Function.__proto__ === Function.prototype);
+        // console.log(Object.__proto__ === Object.prototype);  //false
+
+        console.log(Object.prototype);
+        console.log(Function.prototype.__proto__);
+
+    </script>
+</body>
+
+</html>
