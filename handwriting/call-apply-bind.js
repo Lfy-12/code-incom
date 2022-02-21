@@ -1,3 +1,5 @@
+// 实现call、apply、bind
+
 Function.prototype.myCall = function (context) {
     // 判断调用对象
     if(typeof this != 'function') {

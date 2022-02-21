@@ -5,18 +5,18 @@ const path = require('path')
 const { pinyin } = require('pinyin-pro');
 
 // 判断是不是中文 \u4e00-\u9fa5
-// () 为了提取匹配字符串的，表达式中有几个()就有几个相应的匹配字符串 $1
+// () 为了提取匹配字符串的，表达式中有几个()就有几个相应的匹配字符串  $1 $2 $3...
 // [] 定义匹配的字符范围。比如[a-zA-Z0-9]表示匹配英文字符和数字。[\s*表示空格或者*号]
 // + 一次或多次   * 零次或多次   ? 零次或一次
 //  (1)''   (2)""   (3) > <    (4) =''   (5) =""  (6)``
 //   /'([\u4e00-\u9fa5]+)'/g  
 //   /'([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)'/g
-const reg1 = /'([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)'/g
-const reg2 = /"([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)"/g
-const reg3 = />\s*([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)\s*</g
-const reg4 = /=\s*'([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)'/g
-const reg5 = /=\s*"([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)"/g
-const reg6 = /`([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，:：()...]*)`/g
+const reg1 = /'([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，,:：()...]*)'/g
+const reg2 = /"([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，,:：()...]*)"/g
+const reg3 = />\s*([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，,:：()...]*)\s*</g
+const reg4 = /=\s*'([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，,:：()...]*)'/g
+const reg5 = /=\s*"([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，,:：()...]*)"/g
+const reg6 = /`([\u4e00-\u9fa5][\u4e00-\u9fa5a-zA-Z0-9?？!！%，,:：()...]*)`/g
 
 const list = new Set()
 const unique = []
@@ -28,6 +28,7 @@ function create(file) {
   return arr.join('-').split('.')[0].replace(/\-/g, '.')
 }
 
+// 弃用
 async function translateToID(value) {
   const str = encodeURI(value);
   // 有道翻译api  发送请求 (接口不可用时,请自主替换)
