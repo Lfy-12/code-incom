@@ -17,6 +17,8 @@ Function.prototype.myCall = function (context) {
     delete context.fn;
     return result;
 }
+// let arr = [1,2,3]
+// arr.concat.myCall([],1)
 
 Function.prototype.myApply = function (context) {
     if(typeof this != 'function') {
@@ -24,7 +26,6 @@ Function.prototype.myApply = function (context) {
     }
     context = context || window;
     context.fn = this;
-    console.log(this);
     let result = null;
     if(arguments[1]) {
         result = context.fn(...arguments[1]);
