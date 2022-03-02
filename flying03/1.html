@@ -7,15 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>影子</title>
   <style>
-    div {
-      width: 200px;
-      height: 200px;
-      padding: 20px;
-      margin: 20px;
-      border: 10px;
-    }
-
-
     ul {
       color: #000;
     }
@@ -39,7 +30,6 @@
 
   <button onclick="myFunc()">click</button>
 
-
   <table>
     <tr>
       <td>111</td>
@@ -53,27 +43,37 @@
     </dt>
   </dl>
 
-
   <ul>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
-    <li>10</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
     <li>10</li>
   </ul>
 
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      margin: 20px;
+      border: 10px solid red;
+    }
+  </style>
 
   <script>
+    // const div = document.querySelector('div')
+    // console.log(div.clientWidth);    // width + padding   返回值不带单位
+    // console.log(div.offsetWidth);    // width + padding + border   返回值不带单位
+    // console.log(div.scrollWidth);    // width + padding   返回值不带单位
+
     // let val
     // console.log(val != '0' ? 'define':'undefine');
-
-    // const div = document.querySelector('div')
-    // console.log(div.clientWidth);
 
     // function myFunc(){
     //   document.write(a)
@@ -93,21 +93,18 @@
 
     // function test(){
     //   var n = 4399;
-
     //   function add(){
     //     n++;
     //     console.log(n);
     //   }
-
     //   return {n,add}
     // }
-    // var res = test();
-    // var res1 = test();
+    // var res = test();  // {n:4399, add:func()}
+    // var res1 = test();  // {n:4399, add:func()}
     // res.add();
-    // res.add()
+    // res.add();
     // console.log(res.n);
-    // res1.add()  // false
-
+    // res1.add();  // false
    
     // html5 manifest 属性
 
@@ -150,20 +147,13 @@
     // 折半插入   起泡  【 堆】  基数  【 简单选择  希尔】
 
     // 浏览器和服务器在基于https进行请求链接到数据传输过程中，用到了如下哪些技术
-    // 非对称加密技术
-    // 对称加密技术
-    // 散列（哈希）算法
-    // 数字证书
-
-    
-
-
+        // 非对称加密技术
+        // 对称加密技术
+        // 散列（哈希）算法
+        // 数字证书
 
 
     // 算法：比较版本号 leecode 165
-
-
-
 
   </script>
 </body>

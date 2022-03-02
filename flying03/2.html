@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>海康威视</title>
     <style>
         .box{
             border: 1px red solid;
@@ -18,9 +18,12 @@
             background: #000;
             float: left;
         }
-        /* .float::after{
+        .float::after{
+            content: '';
             clear: both;
-        }  ???? */
+            display: block;
+            
+        }  
         .clear{
             /* clear: both; */
         }
@@ -44,8 +47,8 @@
             // 父元素上加clear: both;
             // 父元素上加overflow: hidden;
             // 父元素上加overflow: auto;
-            // 子元素后加一个标签clear: both;
-            // 子元素添加伪元素::after{ clear: both;}
+           // 子元素后加一个标签clear: both;
+           // 父元素添加伪元素::after{ clear: both;}
 
         // const a = [1,2,3]
         // a[5]=6
@@ -70,6 +73,9 @@
         // o(1)  o(n+logN)   o(logN)  o(1)
 
         // html5语义化标签有  hgroup address  
+
+        // 有25匹马，速度都不同，但每匹马的速度都是定值。现在只有5条赛道，无法计时，即每赛一场最多只能知道5匹马的相对快慢。
+        // 问最少赛几场可以找出25匹马中速度最快的前3名？   5 6 【7】 8
 
         // 简答题：
         // 1. 声明变量的方法
