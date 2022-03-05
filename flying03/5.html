@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多益</title>
+    <style>
+        #demo {
+            color: black;
+        }
+
+        .title {
+            color: red;
+        }
+
+        #demo span {
+            color: blue;
+        }
+
+        #demo * {
+            color: yellow;
+        }
+
+        div::after {
+            content: 'divlfy';
+        }
+
+        p::after {
+            content: 'plfy';
+        }
+
+        a::after {
+            content: 'alfy';
+        }
+
+        img::after {
+            content: 'imglfy';
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 我的标题的颜色是 -->
+    <div id="demo">
+        <div class="title">
+            <span>我的标题</span>
+        </div>
+    </div>
+
+    <!-- 没有::after属性的是 -->
+    <div></div>
+    <p></p>
+    <a href=""></a>
+    <img src="" alt="">
+
+
+    <script>
+        // let res = [[0,1],[2,3]].reduce((acc,cur) => {
+        //     return acc.concat(cur)
+        // },[1,2]);
+        // console.log(res);
+
+        // console.log(3.toString());
+        // console.log(3..toString());
+        // console.log(3...toString());
+
+        // var object = {b:{c:3}, d:[{e:10},{e:6}]}
+        // console.log(object.d.e == 4);
+
+        // function fun3(){
+        //     console.log('fun3');
+        // }
+        // function fun2(){
+        //     fun3()
+        // }
+        // function fun1(){
+        //     fun2()
+        // }
+        // fun1()
+
+
+
+// 填空题
+
+        // 加粗字体的方法  em strong font-weight
+
+        // 当服务器和浏览器对传输的纯文本做______处理后，可有效减少文本大小，甚至可以压缩到原本大小的20%
+
+        // (function (window) {
+        //     function fn(str) {
+        //         this.str = str;
+        //     }
+        //     fn.prototype.format = function () {
+        //         var arg = [...arguments]
+        //         console.log(arg);
+        //         return this.str.replace( /\w/ , function(a,b) {
+        //             return arg[b] || ""
+        //         })
+        //     }
+        //     window.fn = fn;
+        // })(window)
+        // (function () {
+        //     var t = new fn('<p><a href="{0}">{1}</a><span>{2}</span></p>')
+        //     console.log(t.format('http://www.duoyi.com','duoyi','welcome'));
+        // })()
+
+        // var ary = [0,1,2];
+        // ary[10] = 10
+        // let res = ary.filter(function(x){return x===undefined})
+        // console.log(res);
+
+        // var x=1,y=0;
+        // function add(n) {
+        //     n=n+1
+        // }
+        // y=add(x)
+        // console.log(x,y);
+
+        // let a=1;
+        // let obj = {
+        //     b:2
+        // }
+        // let fn = function() {}
+        // fn.c = 3
+        // function test(x,y,z){
+        //     x=4;
+        //     y.b=5;
+        //     z.c=6
+        //     return z
+        // }
+        // test(a,obj,fn)
+        // console.log(a+obj.b+fn.c);
+
+
+
+// 简答题 
+
+        // 继承的属性  font  font-size  font-weight  text-indent text-align  line-height  color visibility curson
+
+        // LiFangYan  分隔成 li fang yan  (代码)
+        // let str = 'LiFangYan'
+        // let newStr = str.replace(/\b\w+\b/g, function(word){
+        //     return word.toLowerCase()+ ' ';
+        // })
+        // console.log(newStr);
+
+        // 设置锚点用的a标签的 (  ) 属性，lable的for属性指向的是表单元素的 (  ) 属性。
+        // href id
+
+        // 对vuex的理解
+
+        // 对git的理解，团队在分支上进行开发的最优方案
+
+        // 输出结果，并解释
+        // (function test() {
+        //     setTimeout(()=>{console.log(1);},0)
+        //     new Promise(resolve => {
+        //         console.log(2);
+        //         for(let i=0;i<999;i++) {
+        //             resolve()
+        //         }
+        //         console.log(3);
+        //     })
+        //     .then(()=>console.log(4))
+        //     .then(()=>console.log(5))
+        // })()  // error
+
+        // 算法：判断类型，如map、regxeg等等
+        // Object.prototype.toString.call(item)
+
+        // 算法：计算字符串中每个字母出现的次数，输出obj对象
+    </script>
+</body>
+
+</html>
