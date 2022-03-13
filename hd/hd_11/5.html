@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class声明的方式为什么不能遍历</title>
+</head>
+<body>
+  <script>
+    // 函数声明方式
+    function User(name){
+      this.name = name
+    }
+    User.prototype.show = function(){}
+    let f = new User('fff');
+    for (const key in f) {
+      console.log(key);
+    }
+
+    // 类声明方式
+    class Admin{
+      constructor(name){
+        this.name = name
+      }
+      show(){}
+    }
+    let y = new Admin('yyy')
+    for (const key in y) {
+      console.log(key);
+    }
+  </script>
+</body>
+</html>

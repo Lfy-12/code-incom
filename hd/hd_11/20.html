@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用super访问父类方法</title>
+</head>
+<body>
+  <script>
+    class Controller{
+      sum(){
+        return this.data.reduce((t,c)=>t+c.price,0);
+      }
+    }
+    class Lesson extends Controller{
+      constructor(data){
+        super();
+        this.data = data;
+      }
+      info(){
+        return{
+          totalPrice:super.sum(),
+          data:this.data
+        }
+      }
+    }
+    
+    let data = [
+      {name:'js',price:107},
+      {name:'css',price:45},
+      {name:'html',price:23}
+    ];
+    let test = new Lesson(data);
+    console.log(test.info());
+  </script>
+</body>
+</html>

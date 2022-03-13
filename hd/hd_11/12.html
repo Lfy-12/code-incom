@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用symbol定义protected属性</title>
+</head>
+<body>
+  <script>
+    const protecteds = Symbol();//Symbol唯一值
+    // Symbol仅可以类及其子类中修改
+    class Common{
+      constructor(){
+        this[protecteds]={};
+        this[protecteds].host = "https://houdunren.com";
+      }
+      set host(url){
+        if(!/^https?:/i.test(url)){
+          throw new Error("非常网址");
+        }
+        this[protecteds].host = url;
+      }
+      get host(){
+        return this[protecteds].host;
+      }
+    }
+    class User extends Common{
+      constructor(name){
+        super();
+        this.name = name;
+      }
+    }
+    let fy = new User('lfy');
+    fy.host = "https://lfy.com";
+    console.log(fy);
+  </script>
+</body>
+</html>

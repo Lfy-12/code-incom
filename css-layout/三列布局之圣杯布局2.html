@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css常见布局之圣杯布局:flex</title>
+</head>
+<style>
+  header,footer{
+    width:100%;
+    height: 100px;
+    background: grey;
+  }
+  main{
+    display:flex;
+  }
+  main div{
+    height: 200px;
+  }
+  .left,.right{
+    width: 250px;
+    background: rgb(147, 83, 83);
+  }
+  .center{
+    flex:1;
+    background: rgb(113, 211, 113);
+  }
+</style>
+<body>
+  <header>header</header>
+  <main>
+    <div class="left">left</div>
+    <div class="center">两侧固定，中间自适应</div>
+    <div class="right">right</div>
+  </main>
+  <footer>footer</footer>
+</body>
+</html>
+<!-- 在HTML中，需要把class=“center”放在两侧边栏的上方才是最佳，因为DOM是按顺序渲染的，所以需优先加载主要内容，但这会导致位置的先后顺序错乱，这里可以使用flex布局的order属性来改变位置的先后顺序 -->
+<!-- <div>
+  <div class="center" style="order: 1;"></div>
+  <div class="left" style="order: 0;"></div>
+  <div class="right" style="order: 2;"></div>
+</div> -->

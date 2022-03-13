@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后盾人 第九章jsP16</title>
+</head>
+<body>
+  <script>
+
+    // let hd = {
+    //   user:'lfy',
+    //   get:function(){
+    //     return function(){
+    //       // return this.user;
+    //       return this;
+    //     }
+    //   }
+    // };
+    // let fy = hd.get()
+    // console.log(fy());
+    
+    // 按理说,函数中this能访问到父级函数作用域中的this，但是this代表指向当前对象，所以最后输出的是window对象
+
+    // let hd = {
+    //   user:'lfy',
+    //   get:function(){
+    //     This = this
+    //     return function(){
+    //       return This.user;
+    //       // return This;
+    //     }
+    //   }
+    // };
+    // let fy = hd.get()
+    // console.log(fy());
+    
+    let hd = {
+      user:'lfy',
+      get:function(){
+        return()=>{
+          console.log(this.user);
+          console.log(this);
+        }
+      }
+    };
+    let fy = hd.get()
+    fy();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态方法的实现</title>
+</head>
+<body>
+  <script>
+    class Admin{
+      show(){
+        console.log('prototype.show');
+      }
+      static show(){
+        console.log('static.show');
+      }
+    }
+    Admin.show();
+    let y = new Admin();
+    y.show();
+
+    // 运用
+    class Member{
+      constructor(name,age,job){
+        this.name = name
+        this.age = age
+        this.job = job
+      }
+      static create(...args){
+        // console.log(this);
+        return new this(...args)
+      }
+    }
+    let fy = Member.create('lfy',18,'student')
+    console.log(fy);
+  </script>
+</body>
+</html>

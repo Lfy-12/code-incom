@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>粘连布局</title>
+  <style>
+    .box{
+      height: 100%;
+    }
+    .middle{
+      min-height: 100%;
+    }  
+    .main{
+      /* 为了显示效果才设置为20px的width */
+      width: 20px; 
+      padding-bottom: 50px;
+      background: pink;
+    } 
+    .footer{
+      background: yellow;
+      height: 50px;
+      margin-top: -50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!--内容外框-->
+    <div class="middle">
+      <!--主要内容-->
+      <div class="main">好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上</div>
+    </div>
+    <!--底部-->
+    <div class="footer"></div>
+  </div>
+</body>
+</html>

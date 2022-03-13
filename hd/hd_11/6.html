@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>严格模式下运行</title>
+</head>
+<body>
+  <script>
+    function User(){}
+    User.prototype.show = function(){
+      function test(){
+        console.log(this);
+      }
+      test()
+    };
+    let f = new User();
+    f.show();
+
+    // 默认开启严格模式
+    class Admin{
+      show(){
+        function test(){
+          console.log(this);
+        }
+        test()
+      }
+    }
+    let y = new Admin();
+    y.show();
+  </script>
+</body>
+</html>

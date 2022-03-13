@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后盾人 第九章jsP14</title>
+</head>
+<body>
+  <script>
+    let list = [
+      {name:'1',money:99,click:95},
+      {name:'2',money:67,click:12},
+      {name:'3',money:3,click:33},
+      {name:'4',money:53,click:15},
+    ];
+    // list.sort(function(a,b){
+    //   return a.money - b.money
+    // })
+    function resort(attr,type='asc'){
+      return function(a,b){
+        if(type == 'asc') return a[attr] - b[attr]
+        return b[attr] - a[attr]
+      }
+    }
+    list.sort(resort('click','desc'))
+    console.table(list)
+  </script>
+</body>
+</html>

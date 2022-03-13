@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用命名规则保护属性</title>
+</head>
+<body>
+  <script>
+    class User{
+      //约定俗成：带下划线开头的为私有属性，不要对他的值进行修改
+      _url = 'https://houdunren.com'  
+      constructor(name){
+        this.name = name
+      }
+      set url(url){
+        if(!/^https?:/i.test(url)){
+          throw new Error("非常网址");
+        }
+        this._url = url;
+      }
+    }
+
+    let fy = new User('lfy');
+    fy.name = 'ffffyyy'; //name在外部可以进行修改
+    console.log(fy);
+    // fy.url = 'lfy.com';
+    fy.url = 'http://lfy.com';
+    console.log(fy);
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态继承原理</title>
+</head>
+<body>
+    <script>
+      class User{
+        name = 'llffyy'
+        static site = 'http://lfy.com';
+        static show(){
+          console.log("user.static show");
+        }
+        test(){}
+      }
+      class Admin extends User{
+        name = 'lfy'
+      }
+
+      console.dir(Admin)
+      let fy = new Admin()
+      console.dir(fy)
+
+    </script>
+</body>
+</html>

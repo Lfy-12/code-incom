@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后盾人 第九章jsP15</title>
+</head>
+<body>
+  <div value="lfy">ffff</div>
+  <div value="fy">yyyy</div>
+<script></script>
+  <script>
+    // let divs = document.querySelectorAll('div');
+    // divs.forEach(item => {
+    //   item.addEventListener("click",function(){
+    //     console.log(item.getAttribute('value'));
+    //     console.log(item);
+    //   })
+    // })
+
+    // 浪费内存，只想获取div的属性值，但div也保存了
+
+    let divs = document.querySelectorAll('div');
+    divs.forEach(item => {
+      let val = item.getAttribute('value')
+      item.addEventListener("click",function(){
+        console.log(val);
+        console.log(item);
+      })
+      item = null;
+    })
+
+  </script>
+</body>
+</html>

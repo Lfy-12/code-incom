@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态属性的使用</title>
+</head>
+<body>
+  <script>
+    function User(name){
+      this.name = name //实例对象的属性
+    }
+    User.job = 'student'; //属性构造函数的属性
+    let f = new User('fff');
+    console.dir(f);
+    console.dir(User);
+
+    console.log('=======');
+
+    class Admin{
+      name = 'fy'  //实例的属性
+      static job = 'student' //类的属性
+    }
+    console.dir(Admin)
+    let admin01 = new Admin();
+    let admin02 = new Admin();
+    admin01.name = 'lfy';
+    console.log(admin01);
+    console.log(admin02);
+
+  </script>
+</body>
+</html>

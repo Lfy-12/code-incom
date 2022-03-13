@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mixin混合模式使用技巧</title>
+</head>
+<body>
+  <script>
+    let tool = {
+      max(){
+        console.log('this is max');
+      },
+      test(){}
+    }
+    let tool2 = {
+      sum(){}
+    }
+    class Lesson{
+      constructor(lessons){
+        this.lessons = lessons;
+      }
+      get data(){
+        return this.lessons
+      }
+    }
+    Object.assign(Lesson.prototype,tool,tool2);
+    console.dir(Lesson);
+    const data = [
+      {name:'js',price:100,click:69},
+      {name:'css',price:332,click:34},
+      {name:'html',price:45,click:32},
+    ]
+    let test = new Lesson(data);
+    test.max();
+  </script>
+</body>
+</html>

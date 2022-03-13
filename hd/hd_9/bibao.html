@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后盾人 第九章jsP11-P13</title>
+  <style>
+    button{
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <button>lfy</button>
+  <!-- <button>ifly</button> -->
+</body>
+
+<script>
+  let btns = document.querySelectorAll("button");
+  console.log(btns);
+  btns.forEach(function(item){
+    // let left = 1;
+    let flag = false;
+    item.addEventListener("click",function(){
+      if(!flag){
+        let left = 1;
+        flag = true;
+        setInterval(function(){
+          item.style.left = (left++) + 'px';
+        },100);
+      }
+    })
+  })
+</script>
+
+</html>
